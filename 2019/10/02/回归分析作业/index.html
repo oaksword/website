@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.58.3" />
+
+
+<title>回归分析作业 - My Own Cool Website</title>
+<meta property="og:title" content="回归分析作业 - My Own Cool Website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/oaksword/Homework_Sword">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">22 min read</span>
+    
+
+    <h1 class="article-title">回归分析作业</h1>
+
+    
+    <span class="article-date">2019-10-02</span>
+    
+
+    <div class="article-content">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="section" class="section level1">
+<h1>第一章习题</h1>
+<div id="section-1" class="section level2">
+<h2>习题一</h2>
+
+<p>1.矩阵 <span class="math inline">\(A\)</span> 为 <span class="math inline">\(n\)</span> 阶实对称矩阵，证明：<br />
+(iii) 矩阵 <span class="math inline">\(A\)</span> 有 <span class="math inline">\(n\)</span> 个实特征值（记作 <span class="math inline">\(\lambda_1\, ,\lambda_2\, ,\cdots ,\lambda_n\)</span> ），而且 <span class="math inline">\(n\)</span> 个特征向量可正交化；<br />
+(iv) 存在正交阵 <span class="math inline">\(P\)</span> 使得
+<span class="math display">\[\begin{equation*}
+A = P
+\begin{pmatrix}
+\lambda_1 &amp; &amp; \\
+ &amp; \ddots &amp; \\
+ &amp; &amp; \lambda_n
+\end{pmatrix} P&#39; \triangleq P\Lambda P&#39;
+\end{equation*}\]</span>
+(v) 对任意正整数 <span class="math inline">\(s\)</span> ，有
+<span class="math display">\[\begin{equation*}
+A^s = P
+\begin{pmatrix}
+\lambda_1^s &amp; &amp; \\
+ &amp; \ddots &amp; \\
+ &amp; &amp; \lambda_n^s
+\end{pmatrix} P&#39; \triangleq P\Lambda^s P&#39;
+\end{equation*}\]</span>从而 <span class="math inline">\(\mathrm{tr}(A^s)=\sum_{i=1}^{n}\lambda_i^s\)</span> ；<br />
+(vi) <span class="math inline">\(A\)</span> 是非奇异的当且仅当 <span class="math inline">\(\lambda_i \ne 0\ (\forall i)\)</span> ，且矩阵 <span class="math inline">\(A^{-1}\)</span> 的特征值为 <span class="math inline">\(\lambda_i^{-1}\text{，}i=1\, ,2\, ,\cdots ,n\)</span> ；<br />
+(vii) 矩阵 <span class="math inline">\(\mathrm{I}_n+cA\)</span> 的特征值为 <span class="math inline">\(1+c\lambda_i\text{，}i=1\, ,2\, ,\cdots ,n\)</span> ；<br />
+(viii) 半正定矩阵的特征值均非负，从而半正定矩阵的迹非负。<br />
+</p>
+
+<p>证明</p>
+
+<ol start="3" style="list-style-type: lower-roman">
+<li><p>由代数学基本定理，知矩阵 <span class="math inline">\(A\)</span> 的特征多项式在复数域中有且仅有 <span class="math inline">\(n\)</span> 个根。又由(i)得 <span class="math inline">\(A\)</span> 的复特征值均为实数，故矩阵 <span class="math inline">\(A\)</span> 有 <span class="math inline">\(n\)</span> 个实特征值。下面，借用(iv)的结论，矩阵 <span class="math inline">\(A\)</span> 可相似对角化，则 <span class="math inline">\(A\)</span> 各个特征值的几何重数等于代数重数，所以 <span class="math inline">\(A\)</span> 有 <span class="math inline">\(n\)</span> 个线性无关的特征向量，从而 <span class="math inline">\(n\)</span> 个特征向量可正交化。</p></li>
+<li><p>对实对称矩阵 <span class="math inline">\(A\)</span> 的阶数 <span class="math inline">\(n\)</span> 作数学归纳法。<br />
+<span class="math inline">\(n=1\)</span> 时，<span class="math inline">\(A\)</span> 本身即为对角阵，再取 <span class="math inline">\(P\)</span> 为一阶单位阵，结论成立。<br />
+假设任一 <span class="math inline">\(n-1\)</span> 阶实对称矩阵都能正交相似于一对角阵，下面来看 <span class="math inline">\(n\)</span> 阶的情形。<br />
+设 <span class="math inline">\(\lambda_1\)</span> 为 <span class="math inline">\(A\)</span> 的一个特征值，<span class="math inline">\(\eta_1\)</span> 为对应的单位特征向量，则 <span class="math inline">\(\eta_1\)</span> 可扩成一个标准正交基 <span class="math inline">\(\eta_1\, ,\cdots ,\eta_n\)</span> ，并记矩阵 <span class="math inline">\(T=(\eta_1\, ,\cdots ,\eta_n)\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+AT=T
+\begin{pmatrix}
+\lambda &amp; \alpha \\
+0 &amp; B
+\end{pmatrix}
+\end{equation*}\]</span>又因为
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+\lambda &amp; \alpha \\
+0 &amp; B
+\end{pmatrix}&#39;=(T&#39;AT)&#39;=T&#39;AT=
+\begin{pmatrix}
+\lambda &amp; \alpha \\
+0 &amp; B
+\end{pmatrix}
+\end{equation*}\]</span>所以 <span class="math inline">\(\alpha = 0\)</span> ，矩阵 <span class="math inline">\(B\)</span> 为实对称矩阵。由归纳假设，存在 <span class="math inline">\(n-1\)</span> 阶正交阵 <span class="math inline">\(Q\)</span> ，使得 <span class="math inline">\(B=Q&#39;\Lambda_1 Q\)</span> ，其中 <span class="math inline">\(\Lambda_1\)</span> 为对角阵。令 <span class="math inline">\(Q_1=\mathrm{diag}(1\, ,Q)\)</span> ，就有
+<span class="math display">\[\begin{equation*}
+T&#39;AT=Q&#39;
+\begin{pmatrix}
+\lambda &amp; 0 \\
+0 &amp; \Lambda_1
+\end{pmatrix}Q
+\end{equation*}\]</span>再取 <span class="math inline">\(P=Q_1T&#39;\)</span> ，即可证得 <span class="math inline">\(n\)</span> 阶实对称矩阵亦正交相似于一对角矩阵。<br />
+根据数学归纳法，结论成立。</p></li>
+<li><p>注意到 <span class="math inline">\(PP&#39;=\mathrm{I}\)</span>，从而<span class="math inline">\(A^s=(P\Lambda P&#39;)^s=P\Lambda P&#39;P\Lambda P&#39;\cdots P\Lambda P&#39;=P\Lambda^s P&#39;\)</span> 。又因为相似矩阵有相同的迹，故 <span class="math inline">\(\mathrm{tr}(A^s)=\mathrm{tr}(\Lambda^s)=\sum_{i=1}^{n}\lambda_i^s\)</span> 。</p></li>
+<li><p>矩阵 <span class="math inline">\(A\)</span> 非奇异 <span class="math inline">\(\Leftrightarrow\)</span> 矩阵 <span class="math inline">\(\Lambda\)</span> 非奇异 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\lambda_i \ne 0\ (\forall i)\)</span> 。<br />
+又 <span class="math inline">\(A^{-1}=(P\Lambda P&#39;)^{-1}=P\Lambda^{-1} P&#39;\)</span> 及相似矩阵有相同的特征值，得矩阵 <span class="math inline">\(A^{-1}\)</span> 的特征值为 <span class="math inline">\(\lambda_i^{-1}\text{，}i=1\, ,2\, ,\cdots ,n\)</span> 。</p></li>
+<li><p>注意到 <span class="math inline">\(\mathrm{I}_n+cA=PP&#39;+P(c\Lambda)P&#39;=P(\mathrm{I}_n+c\Lambda)P&#39;\)</span> ，与(vi)类似即可得证。</p></li>
+<li><p>任取非零向量 <span class="math inline">\(x\)</span> ，记向量 <span class="math inline">\(y=Px\)</span> ，则由 <span class="math inline">\(P\)</span> 满秩知 <span class="math inline">\(y\)</span> 亦为非零向量。从而
+<span class="math display">\[\begin{equation*}
+x&#39;\Lambda x=x&#39;P&#39;APx=y&#39;Ay \ge 0
+\end{equation*}\]</span>将 <span class="math inline">\(x\)</span> 取遍标准单位向量即可证得结论。</p></li>
+</ol>
+
+
+<p>2.设 <span class="math inline">\(A\)</span> 为实对称矩阵，用拉格朗日乘数法证明：
+<span class="math display">\[\begin{equation*}
+\max_{x&#39;x \ne 0} \frac{x&#39;Ax}{x&#39;x} = \lambda_{\max}(A)\quad \text{及} \quad \min_{x&#39;x \ne 0} \frac{x&#39;Ax}{x&#39;x} = \lambda_{\min}(A)
+\end{equation*}\]</span>
+</p>
+
+<p>证明</p>
+
+<p>不失一般性，考虑 <span class="math inline">\(x\)</span> 为单位向量的情形即可。取单位向量 <span class="math inline">\(e=(x_1\, ,\cdots ,x_n)&#39;\)</span> ，则 <span class="math inline">\(e\)</span> 的取值范围为单位球面（从而是有界闭集）。易见 <span class="math inline">\(e&#39;Ae\)</span> 为 <span class="math inline">\(e\)</span> 的连续函数，而连续函数在有界闭集上必取得最大、最小值，从而结论中的最值运算是有意义的。<br />
+由 <span class="math inline">\(A\)</span> 实对称，知存在正交阵 <span class="math inline">\(P\)</span> 与对角阵 <span class="math inline">\(\Lambda\)</span>，使得 <span class="math inline">\(A=P&#39;\Lambda P\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+e&#39;Ae=e&#39;P&#39;\Lambda Pe \triangleq y&#39;\Lambda y
+\end{equation*}\]</span>由于正交变换保持距离且为可逆变换，所以向量 <span class="math inline">\(y\)</span> 仍为单位向量且取值范围为单位球面。<br />
+记 <span class="math inline">\(y=(y_1\, ,\cdots ,y_n)&#39;\)</span> ，<span class="math inline">\(\Lambda=\mathrm{diag}(\lambda_1\, ,\cdots ,\lambda_n)\)</span> ，则
+<span class="math display">\[\begin{equation*}
+y&#39;\Lambda y=\lambda_1y_1^2+\cdots +\lambda_ny_n^2
+\end{equation*}\]</span>令 <span class="math inline">\(f(y)=\lambda_1y_1^2+\cdots +\lambda_ny_n^2\)</span> ，于是问题转化为求解
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \max_{y}f(y) \qquad \mathrm{s.t.} \ \sum_{i=1}^{n}y_i^2=1 \\
+&amp; \min_{y}f(y) \qquad \mathrm{s.t.} \ \sum_{i=1}^{n}y_i^2=1
+\end{aligned}
+\end{equation*}\]</span>应用拉格朗日乘数法，构造拉格朗日函数
+<span class="math display">\[\begin{equation*}
+L(y\, ,\mu)= \lambda_1y_1^2+\cdots +\lambda_ny_n^2-\mu(y_1^2+\cdots +y_n^2-1)
+\end{equation*}\]</span>上式两端对各分量求一阶偏导，得
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \frac{\partial L}{\partial y_i}=2\lambda_iy_i-2\mu y_i=0 \qquad i=1\, ,2\, ,\cdots ,n \\
+&amp; \frac{\partial L}{\partial \mu}=y_1^2+\cdots +y_n^2-1=0
+\end{aligned}
+\end{equation*}\]</span>解得 <span class="math inline">\(\mu=\lambda_i \, ,y=\epsilon_i\, ,f(\epsilon_i)=\lambda_i\)</span> ，其中 <span class="math inline">\(\epsilon_i\)</span> 为第 <span class="math inline">\(i\)</span> 个分量为1，其余分量为0的单位向量。由此，遍历 <span class="math inline">\(A\)</span> 的特征值，知结论成立。</p>
+
+
+<p>3.设向量 <span class="math inline">\(\beta=(\beta_1\, ,\beta_2\, ,\cdots ,\beta_n)&#39;\)</span> ，证明：<br />
+(1)对任意 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(a\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\frac{\partial \beta&#39; a}{\partial \beta}=a
+\end{equation*}\]</span>对任意 <span class="math inline">\(n\)</span> 列矩阵 <span class="math inline">\(A\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\frac{\partial A\beta}{\partial \beta&#39;}=A
+\end{equation*}\]</span>(2)若 <span class="math inline">\(A\)</span> 为对称矩阵，则
+<span class="math display">\[\begin{equation*}
+\frac{\partial \beta&#39; A\beta}{\partial \beta}=2A\beta
+\end{equation*}\]</span>
+</p>
+
+<p>证明</p>
+
+<ol style="list-style-type: decimal">
+<li><p>设 <span class="math inline">\(a=(a_1\, ,a_2\, ,\cdots ,a_n)&#39;\)</span> ，则 <span class="math inline">\(\beta&#39;a=a_1\beta_1+a_2\beta_2+\cdots +a_n\beta_n\)</span> 。于是
+<span class="math display">\[\begin{equation*}
+\frac{\partial \beta&#39; a}{\partial \beta}=\left(\frac{\partial}{\partial \beta_1}\, ,\frac{\partial}{\partial \beta_2}\, ,\cdots ,\frac{\partial}{\partial \beta_n}\right)&#39;(a_1\beta_1+a_2\beta_2+\cdots +a_n\beta_n)=(a_1\, ,a_2\, ,\cdots ,a_n)&#39;=a
+\end{equation*}\]</span>又设 <span class="math inline">\(A=(b_{ij})_n\)</span> ，则
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\frac{\partial A\beta}{\partial \beta&#39;} &amp; = \frac{\partial}{\partial \beta&#39;}
+\begin{pmatrix}
+b_{11}\beta_1+\cdots +b_{1n}\beta_n \\
+b_{21}\beta_1+\cdots +b_{2n}\beta_n \\
+\vdots \\
+b_{n1}\beta_1+\cdots +b_{nn}\beta_n 
+\end{pmatrix}\\
+&amp; = 
+\begin{pmatrix}
+\frac{\partial}{\partial \beta_1} \\
+\frac{\partial}{\partial \beta_2} \\
+\vdots \\
+\frac{\partial}{\partial \beta_n}
+\end{pmatrix} (b_{11}\beta_1+\cdots +b_{1n}\beta_n\, ,\cdots , b_{n1}\beta_1+\cdots +b_{nn}\beta_n ) \\
+&amp; = A
+\end{aligned}
+\end{equation*}\]</span></p></li>
+<li><p>对任意的 <span class="math inline">\(n\)</span> 阶方阵 <span class="math inline">\(A=(b_{ij})_n\)</span>，有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\frac{\partial \beta&#39; A\beta}{\partial \beta}&amp;=\frac{\partial}{\partial \beta}\left(\sum_{i=1}^{n}\sum_{j=1}^{n}b_{ij}\beta_i\beta_j\right) \\
+&amp;=\left(\frac{\partial}{\partial \beta_1}\, ,\frac{\partial}{\partial \beta_2}\, ,\cdots ,\frac{\partial}{\partial \beta_n}\right)&#39;\left(\sum_{i=1}^{n}\sum_{j=1}^{n}b_{ij}\beta_i\beta_j\right) \\
+&amp; = (A+A&#39;)\beta
+\end{aligned}
+\end{equation*}\]</span>特别地，当 <span class="math inline">\(A\)</span> 为对称矩阵时，有
+<span class="math display">\[\begin{equation*}
+\frac{\partial \beta&#39; A\beta}{\partial \beta}=2A\beta
+\end{equation*}\]</span></p></li>
+</ol>
+
+
+<p>4.设四分块矩阵
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+A &amp; B \\
+C &amp; D
+\end{pmatrix}
+\end{equation*}\]</span>满足 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(D-CA^{-1}B\)</span> 均可逆。给出上述四分块矩阵的逆矩阵。
+</p>
+
+<p>解</p>
+
+<p>记矩阵 <span class="math inline">\(M=D-CA^{-1}B\)</span> ，则
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+A^{-1} &amp; \\
+ &amp; M^{-1}
+\end{pmatrix}\begin{pmatrix}
+\mathrm{I} &amp; -M^{-1}B \\
+ &amp; \mathrm{I}
+\end{pmatrix}\begin{pmatrix}
+I &amp; \\
+-A^{-1}C &amp; \mathrm{I}
+\end{pmatrix}\begin{pmatrix}
+A &amp; B \\
+C &amp; D
+\end{pmatrix}=\mathrm{I}
+\end{equation*}\]</span>从而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\begin{pmatrix}
+A &amp; B \\
+C &amp; D
+\end{pmatrix}^{-1} &amp; =
+\begin{pmatrix}
+A^{-1} &amp; \\
+ &amp; M^{-1}
+\end{pmatrix}\begin{pmatrix}
+\mathrm{I} &amp; -M^{-1}B \\
+ &amp; \mathrm{I}
+\end{pmatrix}\begin{pmatrix}
+\mathrm{I} &amp; \\
+-A^{-1}C &amp; \mathrm{I}
+\end{pmatrix} \\ &amp; =
+\begin{pmatrix}
+A^{-1}+A^{-1}M^{-1}BA^{-1}C &amp; -A^{-1}M^{-1}B \\
+-M^{-1}A^{-1}C &amp; M^{-1}
+\end{pmatrix}
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>5.(1)举例说明矩阵 <span class="math inline">\(A\)</span> 的广义逆 <span class="math inline">\(A^-\)</span> 不唯一；<br />
+(2)给出计算矩阵 <span class="math inline">\(A\)</span> 广义逆 <span class="math inline">\(A^-\)</span> 的一般公式。
+</p>
+
+<p>解</p>
+
+<ol style="list-style-type: decimal">
+<li><p>先回顾矩阵广义逆的定义。<br />
+设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(s\times n\)</span> 矩阵，矩阵方程 <span class="math inline">\(AXA=A\)</span> 的通解称为 <span class="math inline">\(A\)</span> 的广义逆矩阵，简称为 <span class="math inline">\(A\)</span> 的广义逆，记作 <span class="math inline">\(A^{-}\)</span> 。<br />
+广义逆矩阵可以不唯一。事实上，对任意非单位阵的幂等阵 <span class="math inline">\(A\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; AAA=A \\
+&amp; A\mathrm{I}A=A
+\end{aligned}
+\end{equation*}\]</span>成立。从而 <span class="math inline">\(A\)</span> 的广义逆可以是 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(\mathrm{I}\)</span> ，不唯一。</p></li>
+<li><p>记矩阵 <span class="math inline">\(A\)</span> 的秩为 <span class="math inline">\(r\)</span> ，对 <span class="math inline">\(A\)</span> 作满秩分解
+<span class="math display">\[\begin{equation*}
+A=P
+\begin{pmatrix}
+\mathrm{I}_r &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}Q
+\end{equation*}\]</span>则矩阵 <span class="math inline">\(A\)</span> 的广义逆的一般形式为
+<span class="math display">\[\begin{equation*}
+A^-=Q^{-1}
+\begin{pmatrix}
+\mathrm{I}_r &amp; B \\
+C &amp; D 
+\end{pmatrix}P^{-1}
+\end{equation*}\]</span>其中 <span class="math inline">\(B\, ,C\, ,D\)</span> 分别是任意 <span class="math inline">\(r\times (s-r)\, ,(n-r)\times r\, ,(n-r)\times (s-r)\)</span> 阶矩阵。证明请参阅丘维声著《高等代数》第一版上册251-252页。</p></li>
+</ol>
+
+
+<p>6.对任意 <span class="math inline">\(n\times p\)</span> 阶矩阵 <span class="math inline">\(X\)</span> ，证明：<br />
+(1)无论 <span class="math inline">\((X&#39;X)^-\)</span> 如何变化， <span class="math inline">\(X(X&#39;X)^-X&#39;\)</span> 保持不变；<br />
+(2) <span class="math inline">\(X(X&#39;X)^-X&#39;\)</span> 是一个从 <span class="math inline">\(\mathbb{R}^n\)</span> 到 <span class="math inline">\(\mathcal{M}(X)\)</span> 的投影矩阵。
+</p>
+
+<p>证明</p>
+
+<ol style="list-style-type: decimal">
+<li><p>记矩阵 <span class="math inline">\(X\)</span> 的秩为 <span class="math inline">\(r\)</span> 。由线性代数的知识，知将 <span class="math inline">\(X\)</span> 作一系列初等列变换，可得到一个列阶梯矩阵，即
+<span class="math display">\[\begin{equation*}
+X=AQ
+\end{equation*}\]</span>其中矩阵 <span class="math inline">\(A\)</span> 为列阶梯矩阵（前 <span class="math inline">\(r\)</span> 列为标准单位向量，后 <span class="math inline">\(p-r\)</span> 列为0），<span class="math inline">\(Q\)</span> 为可逆矩阵。再适当交换矩阵 <span class="math inline">\(A\)</span> 的行，得
+<span class="math display">\[\begin{equation*}
+PA=
+\begin{pmatrix}
+\mathrm{I}_r &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}\triangleq \Lambda
+\end{equation*}\]</span>其中，<span class="math inline">\(P\)</span> 为若干行交换矩阵相乘得到的矩阵（因而是正交阵）。于是，我们得到了矩阵 <span class="math inline">\(X\)</span> 的一个满秩分解 <span class="math inline">\(X=P&#39;\Lambda Q\)</span> 。从而 <span class="math inline">\(X&#39;X=Q&#39;\Lambda Q\)</span> 。由第一章习题一5(2)的结论，<span class="math inline">\((X&#39;X)^-\)</span> 的一般形式为
+<span class="math display">\[\begin{equation*}
+(X&#39;X)^-=Q^{-1}
+\begin{pmatrix}
+\mathrm{I}_r &amp; B \\
+C &amp; D
+\end{pmatrix}(Q&#39;)^{-1}
+\end{equation*}\]</span>其中 <span class="math inline">\(B\, ,C\, ,D\)</span> 分别是任意 <span class="math inline">\(r\times (p-r)\, ,(n-r)\times r\, ,(n-r)\times (p-r)\)</span> 阶矩阵。故
+<span class="math display">\[\begin{equation*}
+X(X&#39;X)^-X&#39;=P&#39;\Lambda P
+\end{equation*}\]</span>而与 <span class="math inline">\(B\, ,C\, ,D\)</span> 无关，即 <span class="math inline">\(X(X&#39;X)^-X&#39;\)</span> 与 <span class="math inline">\((X&#39;X)^-\)</span> 的选取无关。</p></li>
+<li><p>由(1)知 <span class="math inline">\(X(X&#39;X)^-X&#39;=P&#39;\Lambda P\)</span> ，容易验证 <span class="math inline">\(X(X&#39;X)^-X&#39;\)</span> 是一个对称幂等阵，且对 <span class="math inline">\(\forall \alpha \in \mathbb{R}^n\)</span> ，<span class="math inline">\(X(X&#39;X)^-X&#39;\alpha =X((X&#39;X)^-X&#39;\alpha)\in \mathcal{M}(X)\)</span> ，从而结论成立。</p></li>
+</ol>
+
+
+<p>7.令矩阵 <span class="math inline">\(\Sigma =(1-\rho)\mathrm{I}_n+\rho 1_n1_n&#39;\)</span> ，其中 <span class="math inline">\(1_n\)</span> 为元素全为1的 <span class="math inline">\(n\)</span> 维向量。求 <span class="math inline">\(\Sigma\)</span> 的特征值和对应的特征向量。又问 <span class="math inline">\(\rho\)</span> 取何值时 <span class="math inline">\(\Sigma\)</span> （半）正定？
+</p>
+
+<p>解</p>
+
+<p>由第一章习题一1(vii)的结论，只需考察矩阵 <span class="math inline">\(1_n1_n&#39;\)</span> 的特征值与特征向量即可。因为 <span class="math inline">\(1_n1_n&#39;\)</span> 的秩为1且易见行和 <span class="math inline">\(n\)</span> 为其特征值，所以矩阵 <span class="math inline">\(1_n1_n&#39;\)</span> 的特征值为 <span class="math inline">\(n\)</span> （1重）和0（ <span class="math inline">\(n-1\)</span> 重）。同时容易求出对应的特征值为 <span class="math inline">\(1_n\)</span> 和 <span class="math inline">\(\epsilon_1-\epsilon_j\text{，}j=2\, ,\cdots ,n\)</span> 。从而矩阵 <span class="math inline">\(\Sigma\)</span> 的特征值为 <span class="math inline">\(1+(n-1)\rho\)</span> （1重）和 <span class="math inline">\(1-\rho\)</span>（ <span class="math inline">\(n-1\)</span> 重），所对应的特征向量即为上述特征向量。<br />
+由于 <span class="math inline">\(\Sigma\)</span> 是对称矩阵，所以判断 <span class="math inline">\(\Sigma\)</span> 是否（半）正定只需考察其特征值。于是容易得出，<span class="math inline">\(\rho=-1/(n-1)\)</span> 或 <span class="math inline">\(\rho=1\)</span> 时，<span class="math inline">\(\Sigma\)</span> 严格半正定；<span class="math inline">\(-1/(n-1) &lt; \rho &lt;1\)</span> 时，<span class="math inline">\(\Sigma\)</span> 正定。</p>
+
+
+<p>8.在 <span class="math inline">\(p\)</span> 维向量空间 <span class="math inline">\(\mathbb{R}^p\)</span> 中，超平面是由线性方程组 <span class="math inline">\(H_{(A,b)}=\{x\, |\, Ax=b\}\)</span> 所定义的点集。<br />
+(i)取定点 <span class="math inline">\(x_0\in H_{(A,b)}\)</span> ，证明：<span class="math inline">\(H_{(A,b)}=\{x\, |\, (x-x_0) \perp \mathcal{M}(A&#39;)\}\)</span> ；<br />
+(ii)若矩阵 <span class="math inline">\(A\)</span> 行满秩，对 <span class="math inline">\(\forall x\in \mathbb{R}^p\)</span> ，计算欧氏距离 <span class="math inline">\(\mathrm{d}(x\, ,H_{(A,b)})\)</span> 。
+</p>
+
+<p>解</p>
+
+<p>不妨设 <span class="math inline">\(A\)</span> 为 <span class="math inline">\(m\times p\)</span> 阶矩阵。</p>
+<ol style="list-style-type: lower-roman">
+<li><p>记集合 <span class="math inline">\(S_1=\{x\, |\, Ax=b\}\)</span> ，<span class="math inline">\(S_2=\{x\, |\, (x-x_0) \perp \mathcal{M}(A&#39;)\}\)</span> 。要证明 <span class="math inline">\(S_1\)</span> 与 <span class="math inline">\(S_2\)</span> 相互包含。<br />
+一方面，任取 <span class="math inline">\(x\in S_1\)</span> ，有 <span class="math inline">\(Ax=b\)</span> 。对 <span class="math inline">\(\forall \alpha \in \mathcal{M}(A&#39;)\)</span> ，存在向量 <span class="math inline">\(\beta \in \mathbb{R}^m\)</span> ，使得 <span class="math inline">\(\alpha =A&#39;\beta\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+(\alpha \, ,x-x_0) &amp; = \beta&#39;A(x-x_0) \\
+&amp; = \beta&#39;(b-b) =0
+\end{aligned}
+\end{equation*}\]</span>即 <span class="math inline">\((x-x_0)\perp \alpha \ (\, \forall \alpha \in \mathcal{M}(A&#39;)\, )\)</span> 。所以 <span class="math inline">\(x \in S_2\)</span> ，<span class="math inline">\(S_1 \subset S_2\)</span> 。<br />
+另一方面，任取 <span class="math inline">\(y \in S_2\)</span> ，有 <span class="math inline">\((y-x_0)\perp \mathcal{M}(A&#39;)\)</span> 。取 <span class="math inline">\(\mathbb{R}^m\)</span> 中一个基 <span class="math inline">\(\gamma_1\, ,\cdots ,\gamma_m\)</span> ，令矩阵 <span class="math inline">\(T=(\gamma_1\, ,\cdots ,\gamma_m)\)</span> ，则 <span class="math inline">\(T\)</span> 为 <span class="math inline">\(m\)</span> 阶可逆矩阵。由于
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; 0=(A&#39;\gamma_1 \, ,y-x_0)=\gamma_1&#39; (Ay-b) \\
+&amp; 0=(A&#39;\gamma_2 \, ,y-x_0)=\gamma_2&#39; (Ay-b) \\
+&amp; \cdots \\
+&amp; 0=(A&#39;\gamma_m \, ,y-x_0)=\gamma_m&#39; (Ay-b)
+\end{aligned}
+\end{equation*}\]</span>从而 <span class="math inline">\(T&#39;(Ay-b)=0\)</span> ，<span class="math inline">\(Ay-b=0\)</span> ，故 <span class="math inline">\(y\in S_1\)</span> ，<span class="math inline">\(S_2 \subset S_1\)</span> 。<br />
+综上， <span class="math inline">\(S_1\)</span> 与 <span class="math inline">\(S_2\)</span> 相互包含，结论成立。事实上，<span class="math inline">\(H_{(A,b)}\)</span> 为 <span class="math inline">\(\mathbb{R}^p\)</span> 上的线性流形，<span class="math inline">\(H_{(A,b)}-x_0\)</span> 为 <span class="math inline">\(\mathbb{R}^p\)</span> 的线性子空间。从 <span class="math inline">\(H_{(A,b)}-x_0\)</span> 的定义上可以看出 <span class="math inline">\(H_{(A,b)}-x_0\)</span> 是 <span class="math inline">\(\mathcal{M}(A&#39;)\)</span> 的正交补空间，于是 <span class="math inline">\(H_{(A,b)}=\{x\, |\, (x-x_0) \perp \mathcal{M}(A&#39;)\}\)</span> 。</p></li>
+<li><p>由于矩阵 <span class="math inline">\(A\)</span> 行满秩，所以方程组 <span class="math inline">\(Ax=b\)</span> 必有解，从而 <span class="math inline">\(H_{(A,b)}\)</span> 不为空集。记方程组 <span class="math inline">\(Ax=0\)</span> 的一个基解矩阵为 <span class="math inline">\(U\)</span> ，则 <span class="math inline">\(\mathrm{d}(x\, ,H_{(A,b)})\)</span> 即为向量 <span class="math inline">\(x-x_0\)</span> 到 <span class="math inline">\(\mathcal{M}(U)\)</span> 的距离。若记 <span class="math inline">\(y^*\)</span> 为关于 <span class="math inline">\(y\)</span> 的方程组 <span class="math inline">\(U&#39;Uy=U&#39;(x-x_0)\)</span> 的解，则 <span class="math inline">\(\mathrm{d}(x\, ,H_{(A,b)})=\rVert x-x_0-Uy^*\rVert_2\)</span>。</p></li>
+</ol>
+
+
+<p>9.设矩阵 <span class="math inline">\(A\)</span> 非奇异，矩阵<span class="math inline">\(D\)</span> 为一方阵，证明：
+<span class="math display">\[\begin{equation*}
+\begin{vmatrix}
+A &amp; B \\
+C &amp; D
+\end{vmatrix}=|A||D-CA^{-1}B|
+\end{equation*}\]</span>
+</p>
+
+<p>证明</p>
+
+<p>由初等变换，易见
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+A &amp; B \\
+C &amp; D
+\end{pmatrix}
+\begin{pmatrix}
+\mathrm{I} &amp; -A^{-1}B \\
+0 &amp; \mathrm{I}
+\end{pmatrix}=
+\begin{pmatrix}
+A &amp; 0 \\
+C &amp; D-CA^{-1}B
+\end{pmatrix}
+\end{equation*}\]</span>从而结论成立。</p>
+
+
+<p>10.设矩阵 <span class="math inline">\(A\, ,B\)</span> 均为半正定矩阵且 <span class="math inline">\(A\le B\)</span> 。<br />
+(i)证明：<span class="math inline">\(AB^-A\le A\)</span> ；<br />
+(ii) <span class="math inline">\(AB^-A\)</span> 依赖于广义逆的选择吗？
+</p>
+
+<p>解</p>
+
+<ol style="list-style-type: lower-roman">
+<li><p>事实上，<span class="math inline">\(B^-\)</span> 不一定是对称矩阵，从而无法保证 <span class="math inline">\(AB^-A\)</span> 是对称矩阵，偏序关系无从谈起。</p></li>
+<li></li>
+</ol>
+
+
+<p>11.举例说明：存在这样的矩阵 <span class="math inline">\(\Sigma\)</span> ，<span class="math inline">\(\Sigma\)</span> 非半正定，但可以找到正交阵 <span class="math inline">\((P\  Q)\)</span> ，使得 <span class="math inline">\(P&#39;\Sigma P=\Lambda_r\, ,Q&#39;\Sigma Q=0\)</span> 。
+</p>
+
+<p>解</p>
+
+<p>令
+<span class="math display">\[\begin{equation*}
+\Sigma=
+\begin{pmatrix}
+1 &amp; 1 \\
+0 &amp; 0
+\end{pmatrix} \qquad P=
+\begin{pmatrix}
+\frac{\sqrt{2}}{2} \\
+\frac{\sqrt{2}}{2}
+\end{pmatrix} \qquad Q=
+\begin{pmatrix}
+-\frac{\sqrt{2}}{2} \\
+\frac{\sqrt{2}}{2}
+\end{pmatrix}
+\end{equation*}\]</span>容易验证，矩阵 <span class="math inline">\(\Sigma\)</span> 的特征值为0和1，<span class="math inline">\((P\  Q)\)</span> 为正交阵且 <span class="math inline">\(P&#39;\Sigma P=1\, ,Q&#39;\Sigma Q=0\)</span> 。</p>
+
+
+<p>12.设矩阵 <span class="math inline">\(A\, ,B\)</span> 均为半正定矩阵，且 <span class="math inline">\(A\le B\)</span> 。证明：<br />
+(i) <span class="math inline">\(\mathrm{tr}(A) \le \mathrm{tr}(B)\)</span> ；<br />
+(ii)矩阵 <span class="math inline">\(A\)</span> 的最大特征值不大于矩阵 <span class="math inline">\(B\)</span> 的最大特征值；<br />
+(iii)矩阵 <span class="math inline">\(A\)</span> 的最小特征值不大于矩阵 <span class="math inline">\(B\)</span> 的最大特征值；<br />
+(iv) <span class="math inline">\(|A|\le |B|\)</span> ；<br />
+(v) <span class="math inline">\(\mathcal{M}(A)\subset \mathcal{M}(B)\)</span> ；<br />
+(vi)设 <span class="math inline">\(P_A\, , P_B\)</span> 分别是 <span class="math inline">\(A\, ,B\)</span> 的正交投影矩阵，则 <span class="math inline">\(P_A \le P_B\)</span> 。
+</p>
+
+<p>证明</p>
+
+<p>设矩阵 <span class="math inline">\(A\, , B\)</span> 的阶数为 <span class="math inline">\(m\)</span> 。</p>
+<ol style="list-style-type: lower-roman">
+<li><p>由 <span class="math inline">\(A\le B\)</span> 知 <span class="math inline">\(\forall x \in \mathbb{R}^m\)</span> ，有 <span class="math inline">\(x&#39;Ax \le x&#39;Bx\)</span> 。从而将 <span class="math inline">\(x\)</span> 取遍 <span class="math inline">\(\epsilon_i\text{，}i=1\, ,2\, ,\cdots ,m\)</span> ，就得到 <span class="math inline">\(A\)</span> 对角线元素的值均不大于 <span class="math inline">\(B\)</span> 对角线元素的值。因此 <span class="math inline">\(\mathrm{tr}(A) \le \mathrm{tr}(B)\)</span> 。</p></li>
+<li><p>易见
+<span class="math display">\[\begin{equation*}
+\lambda_{\max}(A)=\max_{x&#39;x\ne 0}\frac{x&#39;Ax}{x&#39;x} \le \max_{x&#39;x\ne 0}\frac{x&#39;Bx}{x&#39;x}=\lambda_{\max}(B)
+\end{equation*}\]</span></p></li>
+<li><p>同样地，有
+<span class="math display">\[\begin{equation*}
+\lambda_{\min}(A)=\min_{x&#39;x\ne 0}\frac{x&#39;Ax}{x&#39;x} \le \min_{x&#39;x\ne 0}\frac{x&#39;Bx}{x&#39;x}=\lambda_{\min}(B)
+\end{equation*}\]</span></p></li>
+<li><p>不妨设矩阵 <span class="math inline">\(A\, ,B\)</span> 均正定。由 <span class="math inline">\(A\le B\)</span> 知 <span class="math inline">\(\forall x\in \mathbb{R}^m\)</span> 且 <span class="math inline">\(x\ne 0\)</span> ，有 <span class="math inline">\(0 &lt; x&#39;Ax \le x&#39;Bx\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+1 &amp; \ge \frac{x&#39;Ax}{x&#39;Bx} \\
+  &amp; = \frac{y&#39;B^{-\frac 12}AB^{-\frac 12}y}{y&#39;y} \qquad (y=B^{\frac 12}x)
+\end{aligned}
+\end{equation*}\]</span>因此 <span class="math inline">\(\lambda_{\max}(B^{-\frac 12}AB^{-\frac 12})\le 1\)</span> 。又易见矩阵 <span class="math inline">\(B^{-\frac 12}AB^{-\frac 12}\)</span> 为正定矩阵，从而其特征值介于0和1之间（不包含0）。因此 <span class="math inline">\(|B^{-\frac 12}AB^{-\frac 12}|\le 1\)</span> ，即 <span class="math inline">\(|A|\le |B|\)</span> 。</p></li>
+<li><p>对 <span class="math inline">\(x\in \mathcal{M}(B)^{\perp}\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+Bx=0 &amp; \quad \Rightarrow x&#39;Bx=0 \\
+&amp; \quad \Rightarrow x&#39;Ax \le x&#39;Bx=0 \\
+&amp; \quad \Rightarrow x&#39;Ax=0 \\
+&amp; \quad \Rightarrow (A^{\frac{1}{2}}x)&#39;(A^{\frac{1}{2}}x)=0 \\
+&amp; \quad \Rightarrow (A^{\frac{1}{2}}x)=0 \\
+&amp; \quad \Rightarrow Ax=0 \\
+&amp; \quad \Rightarrow \mathcal{M}(B)^{\perp} \subset \mathcal{M}(A)^{\perp} \\
+\end{aligned}
+\end{equation*}\]</span>从而 <span class="math inline">\(\mathcal{M}(A)\subset \mathcal{M}(B)\)</span> 。</p></li>
+<li><p>对 <span class="math inline">\(\forall \xi \in \mathbb{R}^m\)</span> ，存在 <span class="math inline">\(\xi_1\in \mathcal{M}(A)\)</span> 和 <span class="math inline">\(\xi_2\in \mathcal{M}(A)^{\perp}\)</span> 使得 <span class="math inline">\(\xi=\xi_1+\xi_2\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+\xi&#39; P_A\xi= \xi&#39; P_AP_A\xi=(P_A\xi)&#39;(P_A\xi)=\xi_1&#39;\xi_1
+\end{equation*}\]</span>于是
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\xi&#39;P_B\xi &amp; = \xi_1&#39;P_B\xi_1 + \xi_1&#39;P_B\xi_2 +\xi_2&#39;P_B\xi_1 + \xi_2&#39;P_B\xi_2 \\
+&amp; = (P_B\xi)&#39;(P_B\xi) + (P_B\xi_1)&#39;\xi_2 + \xi_2&#39;(P_B\xi_1) + \xi_2&#39;P_B\xi_2 \\
+&amp; = \xi_1&#39;\xi_1 + \xi_1‘’\xi_2 + \xi_2&#39;\xi_1 + \xi_2&#39;P_B\xi_2 \\
+&amp; = \xi_1&#39;\xi_1 + \xi_2&#39;P_B\xi_2 \\
+&amp; \ge \xi_1&#39;\xi_1 =\xi&#39; P_A\xi
+\end{aligned}
+\end{equation*}\]</span>从而 <span class="math inline">\(P_A \le P_B\)</span> 。</p></li>
+</ol>
+
+
+<p>13.设矩阵 <span class="math inline">\(A\, ,B\)</span> 均为半正定矩阵，且 <span class="math inline">\(\mathcal{M}(A)\subset \mathcal{M}(B)\)</span> 。举例说明 <span class="math inline">\(A\le B\)</span> 未必成立。
+</p>
+
+<p>解</p>
+
+<p>令 <span class="math inline">\(A=\mathrm{diag}(1\, ,3\, ,0\, ,0)\ ,B=\mathrm{diag}(1\, ,1\, ,1\, ,0)\)</span> ，则易见 <span class="math inline">\(A\)</span> 每一列都可由 <span class="math inline">\(B\)</span> 线性表出，从而 <span class="math inline">\(\mathcal{M}(A)\subset \mathcal{M}(B)\)</span> 。取向量 <span class="math inline">\(x=(0\, ,1\, ,0\, ,0)&#39;\)</span> ，则 <span class="math inline">\(x&#39;Ax&gt;x&#39;Bx\)</span> ，即<span class="math inline">\(A\le B\)</span> 不成立。</p>
+
+
+</div>
+<div id="section-2" class="section level2">
+<h2>习题二</h2>
+
+<p>1.设随机变量 <span class="math inline">\(X_1\, ,X_2\, ,X_3\)</span> 有相同的均值 <span class="math inline">\(\mu\)</span> ，协方差矩阵为
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(\mathbf{X})=\sigma^2
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; \frac 14 \\
+0 &amp; \frac 14 &amp; 1
+\end{pmatrix}
+\end{equation*}\]</span>求 <span class="math inline">\(\mathrm{E}(X_1^2+2X_1X_2-4X_2X_3+X_3^2)\)</span> 。</p>
+
+
+<p>解</p>
+
+<p>由题设，得
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp;\mathrm{E}(X_1^2+2X_1X_2-4X_2X_3+X_3^2) \\
+=&amp;\mathrm{Var}(X_1)+\mathrm{E}^2(X_1)+2\mathrm{Cov}(X_1\, ,X_2)+2\mathrm{E}(X_1)E(X_2) \\
+&amp;-4\mathrm{Cov}(X_2\, ,X_3)-4\mathrm{E}(X_2)E(X_3)+\mathrm{Var}(X_3)+\mathrm{E}^2(X_3) \\
+=&amp;\sigma^2
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>2.令 <span class="math inline">\(\mathbf{X}=(X_1\, ,X_2\, ,X_3)&#39;\)</span> 且
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(\mathbf{X})=
+\begin{pmatrix}
+5 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 0 \\
+3 &amp; 0 &amp; 3
+\end{pmatrix}
+\end{equation*}\]</span>(a) 求 <span class="math inline">\(X_1-2X_2+X_3\)</span> 的方差；<br />
+(b) 求随机向量 <span class="math inline">\(Y=(Y_1\, ,Y_2)&#39;\)</span> 的协方差阵，其中 <span class="math inline">\(Y_1=X_1+X_2\  ,Y_2=X_1+X_2+X_3\)</span> 。</p>
+
+
+<p>解</p>
+
+<ol style="list-style-type: lower-alpha">
+<li><p>由题设，得
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp;\mathrm{Var}(X_1-2X_2+X_3) \\
+=&amp;\mathrm{Var}(X_1)+4\mathrm{Var}(X_2)+\mathrm{Var}(X_3) \\
+&amp;-4\mathrm{Cov}(X_1\, ,X_2)+2\mathrm{Cov}(X_1\, ,X_3)-4\mathrm{Cov}(X_2\, ,X_3) \\
+=&amp;18
+\end{aligned}
+\end{equation*}\]</span></p></li>
+<li><p>易见
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \mathrm{Var}(X_1+X_2)=12 \\
+&amp; \mathrm{Var}(X_1+X_2+X_3)=21 \\
+&amp; \mathrm{Cov}(X_1+X_2\, ,X_1+X_2+X_3)=\mathrm{Var}(X_1+X_2)+\mathrm{Cov}(X_1+X_2\, ,X_3)=15
+\end{aligned}
+\end{equation*}\]</span>从而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{Cov}(Y) &amp;= 
+\begin{pmatrix}
+\mathrm{Var}(X_1+X_2) &amp; \mathrm{Cov}(X_1+X_2\, ,X_1+X_2+X_3) \\
+\mathrm{Cov}(X_1+X_2\, ,X_1+X_2+X_3) &amp; \mathrm{Var}(X_1+X_2+X_3)
+\end{pmatrix} \\
+&amp;= 
+\begin{pmatrix}
+12 &amp; 15 \\
+15 &amp; 21
+\end{pmatrix}
+\end{aligned}
+\end{equation*}\]</span></p></li>
+</ol>
+
+
+<p>3.设 <span class="math inline">\(X\, ,Y\)</span> 均为随机向量，根据重期望公式
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(U)=\mathrm{E}(\mathrm{E}(U\,|\,V))
+\end{equation*}\]</span>证明
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(X)=\mathrm{E}(\mathrm{Var}(X\,|\,Y))+\mathrm{Var}(\mathrm{E}(X\,|\,Y))
+\end{equation*}\]</span>你能说出上式在概率统计中的解释吗？</p>
+
+
+<p>证明</p>
+
+<p>由
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(X\, |\,Y)=\mathrm{E}(X^2\,|\,Y)-\mathrm{E}^2(X\, |\,Y) 
+\end{equation*}\]</span>得
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(\mathrm{Var}(X\, |\,Y)）=\mathrm{E}(X^2)-\mathrm{E}(\mathrm{E}^2(X\, |\,Y)) 
+\end{equation*}\]</span>又
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{Var}(\mathrm{E}(X\, |\,Y))&amp;=\mathrm{E}(\mathrm{E}^2(X\,|\,Y))-\mathrm{E}^2(\mathrm{E}(X\,|\,Y)) \\
+&amp;=\mathrm{E}(\mathrm{E}^2(X\,|\,Y))-\mathrm{E}^2(X)
+\end{aligned}
+\end{equation*}\]</span>综上，知结论成立。形象地来看，<span class="math inline">\(\mathrm{Var}(X\,|\,Y)\)</span> 可分解为剖面上波动的均值加上剖面上均值的波动。</p>
+
+
+<p>4.设 <span class="math inline">\(\mathbf{X}\, ,\mathbf{Y}\)</span> 是两个随机变量，<span class="math inline">\(A\)</span> 为一纯量矩阵，证明
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(\mathbf{X}&#39;A\mathbf{Y})=\mathrm{tr}(A\mathrm{Cov}(\mathbf{Y}\, ,\mathbf{X}))+\mathrm{E}(\mathbf{X})&#39;A\mathrm{E}(\mathbf{Y})
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>由
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{E}(\mathbf{X}&#39;A\mathbf{Y})=\mathrm{E}[\mathrm{tr}(\mathbf{X}&#39;A\mathbf{Y})]&amp;=\mathrm{E}[\mathrm{tr}(A\mathbf{Y}\mathbf{X}&#39;)] \\
+&amp;=\mathrm{tr}[\mathrm{E}(A\mathbf{Y}\mathbf{X}&#39;)] \\
+&amp;=\mathrm{tr}[A\mathrm{E}(\mathbf{Y}\mathbf{X}&#39;)] \\
+&amp;=\mathrm{tr}[A(\mathrm{Cov}(\mathbf{Y}\, ,\mathbf{X})+\mathrm{E}(\mathbf{Y})\mathrm{E}(\mathbf{X}&#39;))] \\
+&amp;=\mathrm{tr}[A\mathrm{Cov}(\mathbf{Y}\, ,\mathbf{X})]+\mathrm{tr}[A\mathrm{E}(\mathbf{Y})\mathrm{E}(\mathbf{X}&#39;)] \\
+&amp;=\mathrm{tr}[A\mathrm{Cov}(\mathbf{Y}\, ,\mathbf{X})]+\mathrm{tr}[\mathrm{E}(\mathbf{X}&#39;)A\mathrm{E}(\mathbf{Y})] \\
+&amp;=\mathrm{tr}(A\mathrm{Cov}(\mathbf{Y}\, ,\mathbf{X}))+\mathrm{E}(\mathbf{X}&#39;)A\mathrm{E}(\mathbf{Y})
+\end{aligned}
+\end{equation*}\]</span>知结论成立。</p>
+
+
+<p>5.设随机向量 <span class="math inline">\(\mathbf{X}=(X_1\, ,X_2\, ,\cdots ,X_n)&#39;\)</span> 。令
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; Y_1=X_1 \\
+&amp; Y_i=X_i-X_{i-1}\qquad i=2\, ,\, ,3\, ,\cdots ,n
+\end{aligned}
+\end{equation*}\]</span>若诸 <span class="math inline">\(Y_i\)</span> 相互独立，求 <span class="math inline">\(\mathrm{Var}(\mathbf{X})\)</span> 。</p>
+
+
+<p>解</p>
+
+<p>设 <span class="math inline">\(\mathrm{Cov}(X_i\, ,X_j)=\sigma_{ij}\)</span> 。由题设，得
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; 0=\mathrm{Cov}(X_1\, ,X_2-X_1)=\sigma_{12}-\sigma_{11} \\
+&amp; 0=\mathrm{Cov}(X_1\, ,X_3-X_2)=\sigma_{13}-\sigma_{12} \\
+&amp; \cdots \\
+&amp; 0=\mathrm{Cov}(X_1\, ,X_n-X_{n-1})=\sigma_{1n}-\sigma_{1(n-1)} 
+\end{aligned}
+\end{equation*}\]</span>于是
+<span class="math display">\[\begin{equation*}
+\sigma_{11}=\sigma_{12}=\cdots=\sigma_{1n}
+\end{equation*}\]</span>接下来，由
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; 0=\mathrm{Cov}(X_2-X_1\, ,X_3-X_2)=\sigma_{23}-\sigma_{22}-\sigma_{13}+\sigma_{12}=\sigma_{23}-\sigma_{22} \\
+&amp; 0=\mathrm{Cov}(X_2-X_1\, ,X_4-X_3)=\sigma_{24}-\sigma_{23}-\sigma_{14}+\sigma_{13}=\sigma_{24}-\sigma_{23} \\
+&amp; \cdots \\
+&amp; 0=\mathrm{Cov}(X_2-X_1\, ,X_n-X_{n-1})=\sigma_{2n}-\sigma_{2(n-1)}-\sigma_{1n}+\sigma_{1(n-1)}=\sigma_{2n}-\sigma_{2(n-1)} 
+\end{aligned}
+\end{equation*}\]</span>得
+<span class="math display">\[\begin{equation*}
+\sigma_{22}=\sigma_{23}=\cdots=\sigma_{2n}
+\end{equation*}\]</span>由此推知
+<span class="math display">\[\begin{equation*}
+\sigma_{ii}=\sigma_{ij} \qquad i=1\, , \cdots ,n\ ,\ j=i\, ,\cdots ,n
+\end{equation*}\]</span>因此
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(\mathbf{X})=
+\begin{pmatrix}
+\sigma_{11} &amp; \sigma_{11} &amp; \sigma_{11} &amp; \cdots &amp; \sigma_{11} \\
+\sigma_{11} &amp; \sigma_{22} &amp; \sigma_{22} &amp; \cdots &amp; \sigma_{22} \\
+\sigma_{11} &amp; \sigma_{22} &amp; \sigma_{33} &amp; \cdots &amp; \sigma_{33} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\sigma_{11} &amp; \sigma_{22} &amp; \sigma_{33} &amp;  \cdots&amp; \sigma_{nn}
+\end{pmatrix}
+\end{equation*}\]</span></p>
+
+
+<p>6.设随机变量序列 <span class="math inline">\(X_1\, ,X_2\, \cdots ,X_n\overset{\mathrm{i.i.d}}{\sim}\mathrm{N}(\mu\, ,\sigma^2)\)</span> 。定义
+<span class="math display">\[\begin{equation*}
+S^2=\frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X})^2 \qquad Q=\frac{1}{2(n-1)}\sum_{i=1}^{n-1}(X_{i+1}-X_{i})^2
+\end{equation*}\]</span>
+(1) 证明 <span class="math inline">\(\mathrm{Var}(S^2)=2\sigma^4/(n-1)\)</span> ；<br />
+(2) 证明 <span class="math inline">\(Q\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的无偏估计；<br />
+(3) 求 <span class="math inline">\(\mathrm{Var}(Q)\)</span> ，并由此说明 <span class="math inline">\(n \to \infty\)</span> 时，<span class="math inline">\(Q\)</span> 的功效是 <span class="math inline">\(S^2\)</span> 的2/3 。</p>
+
+
+<p>证明</p>
+
+<ol style="list-style-type: decimal">
+<li><p>易见
+<span class="math display">\[\begin{equation*}
+\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)
+\end{equation*}\]</span>从而
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}\left(\frac{(n-1)S^2}{\sigma^2}\right)=2(n-1)
+\end{equation*}\]</span>故 <span class="math inline">\(\mathrm{Var}(S^2)=2\sigma^4/(n-1)\)</span> 。</p></li>
+<li><p>由 <span class="math inline">\(X_{i+1}-X_{i}\sim\mathrm{N}(0\, ,2\sigma^2)\)</span> ，从而
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(Q)=\frac{1}{2(n-1)}\sum_{i=1}^{n-1}\mathrm{E}(X_{i+1}-X_{i})^2=\sigma^2
+\end{equation*}\]</span>即 <span class="math inline">\(Q\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的无偏估计。</p></li>
+<li><p>不失一般性，令 <span class="math inline">\(\mu=0\)</span> ，则
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp;\mathrm{Var}\left(\frac{1}{2(n-1)}\sum_{i=1}^{n-1}(X_{i+1}-X_{i})^2\right) \\
+=&amp; \frac{1}{4(n-1)^2}\mathrm{Var}\left(X_1^2+2X_2^2+\cdots+2X_{n-1}^2+X_n^2-2X_1X_2-\cdots-2X_{n-1}X_n\right) \\
+=&amp; \frac{1}{4(n-1)^2}(\mathrm{Var}(X_1^2)+4\sum_{i=2}^{n-1}\mathrm{Var}(X_i^2)+\mathrm{Var}(X_n^2)-4\mathrm{Cov}(X_1^2\, ,X_1X_2) \\
+&amp;-8\sum_{i=2}^{n-1}\mathrm{Cov}(X_i^2\, ,X_{i-1}X_{i})-8\sum_{i=2}^{n}\mathrm{Cov}(X_i^2\, ,X_iX_{i+1})-4\mathrm{Cov}(X_n^2\, ,X_{n-1}X_n)) 
+\end{aligned}
+\end{equation*}\]</span>其中
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp;\mathrm{Var}(X_i^2)=\mathrm{E}(X_i^4)-\mathrm{E}^2(X_i^2)=3\sigma^4-\sigma^4=2\sigma^4 \\
+&amp;\mathrm{Cov}(X_i^2\, ,X_{i-1}X_{i})=\mathrm{E}(X_i^3X_{i-1})-\mathrm{E}(X_i^2)\mathrm{E}(X_iX_{i-1})=0 \\
+&amp;\mathrm{Cov}(X_i^2\, ,X_{i}X_{i+1})=\mathrm{E}(X_i^3X_{i+1})-\mathrm{E}(X_i^2)\mathrm{E}(X_iX_{i+1})=0
+\end{aligned}
+\end{equation*}\]</span>因此
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(Q)=\frac{3\sigma^4}{n-1}
+\end{equation*}\]</span>故
+<span class="math display">\[\begin{equation*}
+\lim_{n\to \infty}\frac{\mathrm{Var}(Q)}{\mathrm{Var}(S^2)}=\frac 32
+\end{equation*}\]</span>即 <span class="math inline">\(n \to \infty\)</span> 时，<span class="math inline">\(Q\)</span> 的功效是 <span class="math inline">\(S^2\)</span> 的2/3 。</p></li>
+</ol>
+
+
+<p>7.设随机变量序列 <span class="math inline">\(X_1\, ,X_2\, \cdots ,X_n\overset{\mathrm{i.i.d}}{\sim}\mathrm{N}(0\, ,\sigma^2)\)</span> 。令 <span class="math inline">\(\mathbf{X}=(X_1\, ,X_2\, \cdots ,X_n)&#39;\)</span> ，<span class="math inline">\(A\, ,B\)</span> 为任意 <span class="math inline">\(n\)</span> 阶对称矩阵。证明
+<span class="math display">\[\begin{equation*}
+\mathrm{Cov}(\mathbf{X}&#39;A\mathbf{X}\, ,\mathbf{X}&#39;B\mathbf{X})=2\sigma^4\mathrm{tr}(AB)
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>易见
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp;\mathrm{Cov}(\mathbf{X}&#39;A\mathbf{X}\, ,\mathbf{X}&#39;B\mathbf{X}) \\
+=&amp;\mathrm{E}(\mathbf{X}&#39;A\mathbf{X}\mathbf{X}&#39;B\mathbf{X})-\mathrm{E}(\mathbf{X}&#39;A\mathbf{X})\mathrm{E}(\mathbf{X}&#39;B\mathbf{X}) \\
+=&amp;3\sigma^4\sum_{i=1}^{n}a_{ii}b_{ii}+\sigma^4\left(\sum_{i=1}^{n}\sum_{j\ne i}a_{ii}b_{jj}+\sum_{i=1}^{n}\sum_{j\ne i}a_{ij}b_{ij}+\sum_{i=1}^{n}\sum_{j\ne i}a_{ij}b_{ji}\right)\\
+&amp;-\sigma^4\mathrm{tr}(A)\mathrm{tr}(B) \\
+=&amp;2\sigma^4\sum_{i=1}^{n}a_{ii}b_{ii}+\sigma^4\left(\sum_{i=1}^{n}\sum_{j\ne i}a_{ij}b_{ij}+\sum_{i=1}^{n}\sum_{j\ne i}a_{ij}b_{ji}\right)\\
+=&amp;2\sigma^4\mathrm{tr}(AB)
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>8.设随机向量 <span class="math inline">\(\mathbf{X}=(X_1\, ,X_2\, \cdots ,X_n)&#39;\)</span> 的各分量有相同的均值 <span class="math inline">\(\mu\)</span> 和方差 <span class="math inline">\(\sigma^2\)</span> ，且两两之间的相关系数均为 <span class="math inline">\(\rho\)</span> 。<br />
+(1) 求 <span class="math inline">\(\rho\)</span> 的范围；<br />
+(2) 构造满足题设的 <span class="math inline">\(\mathbf{X}\)</span> ；<br />
+(3) 记样本方差 <span class="math inline">\(Q=\frac 1n \sum_{i=1}^{n}(X_i-\bar{X})^2\)</span> ，<br />
+(i) 求 <span class="math inline">\(\mathrm{E}(Q)\)</span> ；<br />
+(ii) 若 <span class="math inline">\(A=a\sum_{i=1}^nX_i^2+b(\sum_{i=1}^nX_i)^2\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的无偏估计，求 <span class="math inline">\(a\, ,b\)</span> ，并由此说明，此时
+<span class="math display">\[\begin{equation*}
+A=\sum_{i=1}^n\frac{(X_i-\bar{X})^2}{(1-\rho)(n-1)}
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<ol style="list-style-type: decimal">
+<li><p>易见 <span class="math inline">\(\mathrm{Var}(\mathbf{X})=\sigma^2((1-\rho)\mathrm{I}_n+\rho 1_n1_n&#39;)\)</span> 。从而，为使 <span class="math inline">\(\mathrm{Var}(\mathbf{X})\)</span> 半正定，由第一章习题一7的结论，知
+<span class="math display">\[\begin{equation*}
+-\frac{1}{n-1}\le \rho \le 1
+\end{equation*}\]</span></p></li>
+<li><p>令 <span class="math inline">\(\mathbf{X}=(X_1\, ,X_2\, \cdots ,X_n)&#39;\sim\mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> 即可，其中
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \boldsymbol{\mu}=\mu1_n \\
+&amp; \Sigma=\sigma^2((1-\rho)\mathrm{I}_n+\rho 1_n1_n&#39;)
+\end{aligned}
+\end{equation*}\]</span></p></li>
+<li></li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li><p>易见
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \mathrm{E}\left(\frac 1n \sum_{i=1}^{n}(X_i-\bar{X})^2\right) \\
+=&amp; \frac 1n \mathrm{E}\left(\mathbf{X}&#39;\left(\mathrm{I}_n-\frac 1n 1_n1_n&#39;\right)\mathbf{X}\right) \\
+=&amp; \frac 1n \mathrm{tr}\left(\left(\mathrm{I}_n-\frac 1n 1_n1_n&#39;\right)\mathrm{Cov}(\mathbf{X})\right)+\mathrm{E}(\mathbf{X}&#39;)\left(\mathrm{I}_n-\frac 1n 1_n1_n&#39;\right)\mathrm{E}(\mathbf{X}) \\
+=&amp; \sigma^2\mathrm{tr}\left((1-\rho)\mathrm{I}_n-\frac{1-\rho}{n}1_n1_n&#39;\right)+\mu^21_n&#39;\left(\mathrm{I}_n-\frac 1n 1_n1_n&#39;\right)1_n \\
+=&amp; \sigma^2(1-\rho)\frac{n-1}{n}
+\end{aligned}
+\end{equation*}\]</span></p></li>
+<li><p>由</p></li>
+</ol>
+<p><span class="math display">\[\begin{equation*}
+\begin{aligned}
+\sigma^2 &amp;= \mathrm{E}\left(a\sum_{i=1}^nX_i^2+b\left(\sum_{i=1}^nX_i\right)^2\right) \\
+&amp;= an(\sigma^2+\mu^2)+b[n(\sigma^2+\mu^2)+n(n-1)(\rho\sigma^2+\mu^2)]
+\end{aligned}
+\end{equation*}\]</span>解得
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; a=\frac{1}{(n-1)(1-\rho)} \\
+&amp; b=-\frac{1}{n(n-1)(1-\rho)}
+\end{aligned}
+\end{equation*}\]</span>因此
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+A &amp;= \frac{1}{(n-1)(1-\rho)}\sum_{i=1}^nX_i^2-\frac{1}{n(n-1)(1-\rho)}\left(\sum_{i=1}^nX_i\right)^2 \\
+&amp;= \frac{1}{(n-1)(1-\rho)}\left(\sum_{i=1}^nX_i^2-n\bar{X}^2\right) \\
+&amp;= \sum_{i=1}^n\frac{(X_i-\bar{X})^2}{(1-\rho)(n-1)}
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>9.设随机变量序列 <span class="math inline">\(X_1\, ,X_2\, \cdots ,X_n\, ,\cdots\)</span> 的各分量有相同的均值 <span class="math inline">\(\mu\)</span> 和方差 <span class="math inline">\(\sigma^2\)</span> ，且两两之间的相关系数均为 <span class="math inline">\(\rho\)</span> 。<br />
+(1) 求 <span class="math inline">\(\rho\)</span> 的范围；<br />
+(2) 构造满足题设的序列且 <span class="math inline">\(\rho\)</span> 不能为0。</p>
+
+
+<p>解</p>
+
+<ol style="list-style-type: decimal">
+<li><p>任取 <span class="math inline">\(X_1\, ,X_2\, \cdots ,X_n\, ,\cdots\)</span> 的有限子集 <span class="math inline">\(X_{n_1}\, ,X_{n_2}\, ,\cdots ,X_{n_r}\)</span> ，其协方差矩阵为 <span class="math inline">\(\sigma^2((1-\rho)\mathrm{I}_r+\rho 1_r1_r&#39;)\)</span> 。与第一章习题二8(1)类似，<span class="math inline">\(\rho\)</span> 需满足
+<span class="math display">\[\begin{equation*}
+-\frac{1}{r-1}\le \rho\le 1 \qquad \forall r\ge 2
+\end{equation*}\]</span>因此 <span class="math inline">\(0\le \rho\le1\)</span> 。</p></li>
+<li><p>令随机变量 <span class="math inline">\(X\sim\mathrm{N}(\mu\, ,\sigma^2)\)</span> ，<span class="math inline">\(X_i=X\ (\forall i)\)</span> 。则易见此序列满足题设且 <span class="math inline">\(\rho=1\)</span> 。</p></li>
+</ol>
+
+
+</div>
+<div id="section-3" class="section level2">
+<h2>习题三</h2>
+
+<p>1.证明：<br />
+(1) 设随机变量 <span class="math inline">\(X\sim \mathrm{N}(0\, ,1)\)</span> ，则 <span class="math inline">\(M_X(t)=\mathrm{e}^{\frac{t^2}{2}}\)</span> ；<br />
+(2) 设随机变量 <span class="math inline">\(X\sim \chi^2(r)\)</span> ，则 <span class="math inline">\(M_X(t)=(1-2t)^{-\frac{r}{2}} \quad t\in[0\, ,\frac{1}{2})\)</span> 。</p>
+
+
+<p>证明</p>
+
+<ol style="list-style-type: decimal">
+<li><p>已知 <span class="math inline">\(X\)</span> 的特征函数为 <span class="math inline">\(\varphi(t)=\mathrm{e}^{-\frac{t^2}{2}}\)</span> ，故
+<span class="math display">\[\begin{equation*}
+M_X(t)=\mathrm{E}\left(\mathrm{e}^{tX}\right)=\mathrm{E}\left(\mathrm{e}^{\mathrm{i}\frac{t}{\mathrm{i}}X}\right)=\varphi\left(\frac{t}{\mathrm{i}}\right)=\mathrm{e}^{\frac{t^2}{2}}
+\end{equation*}\]</span></p></li>
+<li><p>易见
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{E}\left(\mathrm{e}^{tX}\right)&amp;=\int_{0}^{\infty}\mathrm{e}^{tx}\frac{\left(\frac 12\right)^{\frac r2}}{\Gamma\left(\frac r2\right)}x^{\frac r2-1}\mathrm{e}^{-\frac 12 x}\, \mathrm{d}x \\
+&amp;=\int_{0}^{\infty}\frac{\left(\frac 12\right)^{\frac r2}}{\Gamma\left(\frac r2\right)}x^{\frac r2-1}\mathrm{e}^{-\left(\frac 12-t\right) x}\, \mathrm{d}x \\
+&amp;=\frac{\left(\frac 12\right)^{\frac r2}}{\left(\frac 12-t\right)^{\frac r2}} \\
+&amp;=(1-2t)^{-\frac{r}{2}} \qquad t&lt; \frac{1}{2}
+\end{aligned}
+\end{equation*}\]</span></p></li>
+</ol>
+
+
+<p>2.求二项分布、多维正态分布、指数分布、几何分布与泊松分布的矩母函数。</p>
+
+
+<p>解</p>
+
+<ol style="list-style-type: lower-roman">
+<li><p>二项分布 <span class="math inline">\(b(n\, ,p)\)</span> ：
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+M(t)&amp;=\sum_{k=0}^{n}\mathrm{e}^{tk}C_n^kp^k(1-p)^{n-k} \\
+&amp;=\sum_{k=0}^{n}C_n^k(p\mathrm{e}^{t})^k(1-p)^{n-k} \\
+&amp;=(p\mathrm{e}^{t}+1-p)^n
+\end{aligned}
+\end{equation*}\]</span></p></li>
+<li><p>多维正态分布 <span class="math inline">\(\mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> ：
+<span class="math display">\[\begin{equation*}
+M(\mathbf{t})=\varphi\left(\frac{\mathbf{t}}{\mathrm{i}}\right)=\mathrm{e}^{\mathbf{t}&#39;\boldsymbol{\mu}+\frac{1}{2}\mathbf{t}&#39;\Sigma\mathbf{t}}
+\end{equation*}\]</span></p></li>
+<li><p>指数分布 <span class="math inline">\(Exp(\lambda)\)</span> ：
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+M(t)&amp;=\int_0^{\infty}\mathrm{e}^{tx}\lambda\mathrm{e}^{-\lambda x}\, \mathrm{d}x \\
+&amp;=\left(1-\frac{t}{\lambda}\right)^{-1} \qquad t&lt;\lambda
+\end{aligned}
+\end{equation*}\]</span></p></li>
+<li><p>几何分布 <span class="math inline">\(Ge(p)\)</span> ：
+<span class="math display">\[\begin{equation*}
+M(t)=\sum_{k=0}^{n}\mathrm{e}^{tk}p(1-p)^k=\frac{p}{1-(1-p)\mathrm{e}^t} \qquad t&lt;-\ln (1-p)
+\end{equation*}\]</span></p></li>
+<li><p>泊松分布 <span class="math inline">\(P(\lambda)\)</span> ：
+<span class="math display">\[\begin{equation*}
+M(t)=\sum_{k=0}^{\infty}\mathrm{e}^{tk}\frac{\lambda^k}{k!}\mathrm{e}^{-\lambda}=\mathrm{e}^{-\lambda\left(1-\mathrm{e}^t\right)}
+\end{equation*}\]</span></p></li>
+</ol>
+
+
+<p>3.证明： <span class="math inline">\(MX(t)\ge \mathrm{e}^{\mu t}\)</span> 。</p>
+
+
+<p>证明</p>
+
+<p>由指数函数的下凸性质及Jensen不等式，得
+<span class="math display">\[\begin{equation*}
+M_X(t)=\mathrm{E}\left(\mathrm{e}^{tX}\right)\ge\mathrm{e}^{\mathrm{E}(tX)}=\mathrm{e}^{\mu t}
+\end{equation*}\]</span></p>
+
+
+<p>4.设随机变量 <span class="math inline">\(X\)</span> 的矩母函数为 <span class="math inline">\(M_X(t)=(1+\mathrm{e}^t)/2\)</span> 。求 <span class="math inline">\(X\)</span> 的方差。</p>
+
+
+<p>解</p>
+
+<p>易见
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(X)=M_X&#39;&#39;(0)-[M_X&#39;(0)]^2=\frac 14
+\end{equation*}\]</span></p>
+
+
+<p>5.设实值随机变量 <span class="math inline">\(X\)</span> 期望存在，且存在常数 <span class="math inline">\(a\, ,b\)</span> ，<span class="math inline">\(a&lt;0&lt;b\)</span> ，使得 <span class="math inline">\(a\le X\le b\)</span> 几乎处处成立。证明：对 <span class="math inline">\(\forall\lambda \in \mathbb{R}\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(\mathrm{e}^{\lambda X})\le \mathrm{e}^{\lambda^2(b-a)^2/8}
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>我们需要增加一个条件 <span class="math inline">\(\mathrm{E}(X)=0\)</span> ，否则，可举反例，例如，令 <span class="math inline">\(X\sim\mathrm{U}(a\, ,b)\, ,a=-0.1\, , b=0.11\, ,\lambda=1\)</span> 。增加条件后的证明请参见 <a href="https://en.wikipedia.org/wiki/Hoeffding%27s_lemma" class="uri">https://en.wikipedia.org/wiki/Hoeffding%27s_lemma</a> 。</p>
+
+
+<p>6.设随机变量 <span class="math inline">\(X\)</span> 的各阶矩非负，证明：
+<span class="math display">\[\begin{equation*}
+M_X(t)\ge \frac{t^k\mathrm{E}(X^k)}{k!}
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>由 <span class="math inline">\(\mathrm{E}(X^k)\ge 0\)</span> ，得
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+M_X(t)&amp;=\mathrm{E}(\mathrm{e}^{tX}) \\
+&amp;=\mathrm{E}\left(\sum_{k=0}^{\infty}\frac{(tX)^k}{k!}\right) \\
+&amp;=\sum_{k=0}^{\infty}\frac{t^k\mathrm{E}(X^k)}{k!}\ge \frac{t^k\mathrm{E}(X^k)}{k!}
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>7.设离散型随机变量 <span class="math inline">\(X\, ,Y\)</span> 均只取值0与1，记 <span class="math inline">\(p_{ij}=P\{X=i\, ,Y=j\}\)</span> 。证明： <span class="math inline">\(X\, ,Y\)</span> 独立当且仅当 <span class="math inline">\(\mathrm{Cov(X\, ,Y)}=0\)</span> 。</p>
+
+
+<p>证明</p>
+
+<p>记 <span class="math inline">\(p_{i+}=P\{X=i\}\, ,p_{+i}=P\{Y=i\}\)</span> 。<br />
+一方面，<span class="math inline">\(X\, ,Y\)</span> 独立时，有 <span class="math inline">\(\mathrm{E}(XY)=E(X)E(Y)\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+\mathrm{Cov(X\, ,Y)}=\mathrm{E}(XY)-E(X)E(Y)=0
+\end{equation*}\]</span>
+另一方面，<span class="math inline">\(\mathrm{Cov(X\, ,Y)}=0\)</span> 时，有 <span class="math inline">\(p_{11}=p_{1+}\cdot p_{+1}\)</span> 。因此
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; p_{01}=p_{+1}-p_{11}=(1-p_{1+})p_{+1}=p_{0+}p_{+1} \\
+&amp; p_{00}=p_{0+}-p_{01}=p_{0+}(1-p_{+1})=p_{0+}p_{+0} \\
+&amp; p_{10}=p_{+0}-p_{00}=(1-p_{0+})p_{+0}=p_{1+}p_{+0} 
+\end{aligned}
+\end{equation*}\]</span>于是 <span class="math inline">\(X\, ,Y\)</span> 独立。</p>
+
+
+<p>8.设多维随机变量 <span class="math inline">\((X\, ,Y\, ,Z)\)</span> 的联合密度函数为
+<span class="math display">\[\begin{equation*}
+f(x\, ,y\, ,z)=\frac 18 (1+xyz) \qquad -1\le x\, ,y\, ,z\le 1
+\end{equation*}\]</span>证明：<span class="math inline">\((X\, ,Y\, ,Z)\)</span> 两两独立但不相互独立。</p>
+
+
+<p>证明</p>
+
+<p>由于 <span class="math inline">\(f(x\, ,y\, ,z)\)</span> 不能分解为形如 <span class="math inline">\(f_1(x)\, ,f_2(y)\, ,f_3(z)\)</span> 的函数的乘积，故 <span class="math inline">\((X\, ,Y\, ,Z)\)</span> 不相互独立。下面仅对 <span class="math inline">\((X\, ,Y)\)</span> 相互独立作出说明，其余类似。事实上，易见 <span class="math inline">\((X\, ,Y)\)</span> 的联合分布函数为
+<span class="math display">\[\begin{equation*}
+g(x\, ,y)=1/4 \qquad-1\le x\, ,y\le 1
+\end{equation*}\]</span>因此 <span class="math inline">\((X\, ,Y)\)</span> 服从矩形域上的均匀分布，从而相互独立。</p>
+
+
+</div>
+</div>
+<div id="section-4" class="section level1">
+<h1>第二章习题</h1>
+
+<p>1.设随机向量
+<span class="math display">\[\begin{equation*}
+\boldsymbol{Y}=
+\begin{pmatrix}
+\boldsymbol{Y_1} \\
+\boldsymbol{Y_2}
+\end{pmatrix} \sim \mathrm{N}(\boldsymbol{\mu}\, , \Sigma)
+\end{equation*}\]</span>其中，<span class="math inline">\(\boldsymbol{Y_1}\, ,\boldsymbol{Y_2}\)</span> 是 <span class="math inline">\(\boldsymbol{Y}\)</span> 的分量（也是向量）且
+<span class="math display">\[\begin{equation*}
+\boldsymbol{\mu}=
+\begin{pmatrix}
+\boldsymbol{\mu_1} \\
+\boldsymbol{\mu_2}
+\end{pmatrix} \qquad
+\Sigma=
+\begin{pmatrix}
+\Sigma_{11} &amp; \Sigma_{12} \\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{pmatrix}
+\end{equation*}\]</span>证明：<span class="math inline">\(\boldsymbol{Y_1}\perp \boldsymbol{Y_2}\)</span> （即 <span class="math inline">\(\mathrm{Cov}(\boldsymbol{Y_1}\, ,\boldsymbol{Y_2})=0\)</span> ）当且仅当 <span class="math inline">\(\Sigma_{12}=0\)</span> 。</p>
+
+
+<p>证明</p>
+
+<p>易见
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{Cov}(\boldsymbol{Y_1}\, ,\boldsymbol{Y_2}) &amp;= \mathrm{Cov}\left((I\  O)\boldsymbol{Y}\, ,(O\  I)\boldsymbol{Y}\right) \\
+&amp;= (I\  O)\, \mathrm{Cov}(\boldsymbol{Y})\,
+\begin{pmatrix}
+O \\
+I
+\end{pmatrix} \\
+&amp;= (I\  O)
+\begin{pmatrix}
+\Sigma_{11} &amp; \Sigma_{12} \\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{pmatrix}
+\begin{pmatrix}
+O \\
+I
+\end{pmatrix} \\
+&amp;=\Sigma_{12}
+\end{aligned}
+\end{equation*}\]</span>因此 <span class="math inline">\(\mathrm{Cov}(\boldsymbol{Y_1}\, ,\boldsymbol{Y_2})=0 \Leftrightarrow \Sigma_{12}=0\)</span> ，结论成立。</p>
+
+
+<p>2.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim \mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> ，其中
+<span class="math display">\[\begin{equation*}
+\boldsymbol{\mu}=
+\begin{pmatrix}
+2 \\
+1 \\
+2
+\end{pmatrix} \qquad
+\Sigma=
+\begin{pmatrix}
+2 &amp; 1 &amp; 1 \\
+1 &amp; 3 &amp; 0 \\
+1 &amp; 0 &amp; 1
+\end{pmatrix}
+\end{equation*}\]</span>求 <span class="math inline">\(Z_1=Y_1+Y_2+Y_3\)</span> 与 <span class="math inline">\(Z_2=Y_1-Y_2\)</span> 的联合分布。</p>
+
+
+<p>解</p>
+
+<p>令矩阵
+<span class="math display">\[\begin{equation*}
+A=
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 \\
+1 &amp;  -1 &amp; 0 
+\end{pmatrix}
+\end{equation*}\]</span>则 <span class="math inline">\((Z_1\, ,Z_2)&#39;=A\boldsymbol{Y}\sim \mathrm{N}(\boldsymbol{\mu_1}\, ,\Sigma_1)\)</span> ，其中
+<span class="math display">\[\begin{equation*}
+\boldsymbol{\mu_1}=A\boldsymbol{\mu}=
+\begin{pmatrix}
+5 \\
+1
+\end{pmatrix}
+\qquad \Sigma_1=A\Sigma A&#39;=
+\begin{pmatrix}
+10 &amp; 0 \\
+0 &amp; 3
+\end{pmatrix}
+\end{equation*}\]</span></p>
+
+
+<p>3.设随机变量序列 <span class="math inline">\(Y_1\, ,Y_2\, ,\cdots ,Y_n \overset{\mathrm{i.i.d.}}{\sim} \mathrm{N}(\mu\, ,\sigma^2)\)</span> ，证明
+<span class="math display">\[\begin{equation*}
+\bar{Y}\perp S^2=\frac{1}{n-1}\sum_{i=1}^n\left(Y_i-\bar{Y}\right)
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>记随机向量 <span class="math inline">\(\boldsymbol{Y}=(Y_1\, ,Y_2\, ,\cdots ,Y_n)\)</span> ，矩阵 <span class="math inline">\(A=\mathrm{I}_n-\frac 1n1_n1_n&#39;\)</span> 。则
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \bar{Y}=\frac 1n1_n1_n&#39; \boldsymbol{Y} \\
+&amp; S^2=\frac{1}{n-1}(A\boldsymbol{Y})&#39;(A\boldsymbol{Y})
+\end{aligned}
+\end{equation*}\]</span>考察 <span class="math inline">\((\bar{Y}\, ,A\boldsymbol{Y})&#39;\)</span> 的联合分布，其协方差阵为
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+\frac 1n1_n1_n&#39; \\
+A
+\end{pmatrix}\sigma^2\mathrm{I}_n\left(\frac 1n1_n1_n&#39; \quad  A\right)=\sigma^2
+\begin{pmatrix}
+\frac 1n1_n1_n&#39; &amp; 0 \\
+0 &amp; A
+\end{pmatrix}
+\end{equation*}\]</span>从而 <span class="math inline">\(\bar{Y}\)</span> 与 <span class="math inline">\(A\boldsymbol{Y}\)</span> 相互独立。于是，作为 <span class="math inline">\(A\boldsymbol{Y}\)</span> 的函数，<span class="math inline">\(S^2\)</span> 与 <span class="math inline">\(\bar{Y}\)</span> 相互独立，协方差阵为0。</p>
+
+
+<p>4.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> ，<span class="math inline">\(\boldsymbol{X}=A\boldsymbol{Y}\, ,\boldsymbol{U}=B\boldsymbol{Y}\, ,\boldsymbol{V}=C\boldsymbol{Y}\)</span> 。已知
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \mathrm{Cov}(\boldsymbol{X}\, ,\boldsymbol{U})=0 \\
+&amp; \mathrm{Cov}(\boldsymbol{X}\, ,\boldsymbol{V})=0
+\end{aligned}
+\end{equation*}\]</span>证明 <span class="math inline">\(\boldsymbol{X}\)</span> 与 <span class="math inline">\(\boldsymbol{U}+\boldsymbol{V}\)</span> 相互独立。</p>
+
+
+<p>证明</p>
+
+<p>由题设，知 <span class="math inline">\(AB&#39;=AC&#39;=0\)</span> ，从而
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+\boldsymbol{X} \\
+\boldsymbol{U}+\boldsymbol{V}
+\end{pmatrix} = 
+\begin{pmatrix}
+A \\
+B+C
+\end{pmatrix}\boldsymbol{Y}\sim\mathrm{N}(0\, ,\Sigma)
+\end{equation*}\]</span>其中
+<span class="math display">\[\begin{equation*}
+\Sigma=
+\begin{pmatrix}
+AA&#39; &amp; A(B+C)&#39; \\
+(B+C)A&#39; &amp; (B+C)(B+C)&#39;
+\end{pmatrix}=
+\begin{pmatrix}
+AA&#39; &amp; 0 \\
+0 &amp; (B+C)(B+C)&#39;
+\end{pmatrix}
+\end{equation*}\]</span>于是结论成立。</p>
+
+
+<p>5.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim \mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> ，其中
+<span class="math display">\[\begin{equation*}
+\Sigma=\sigma^2
+\begin{pmatrix}
+1 &amp; \rho &amp; 0 \\
+\rho &amp; 1 &amp; \rho \\
+0 &amp; \rho &amp; 1
+\end{pmatrix}
+\end{equation*}\]</span>已知随机变量 <span class="math inline">\(Y_1+Y_2+Y_3\)</span> 与 <span class="math inline">\(Y_1-Y_2-Y_3\)</span> 相互独立，求 <span class="math inline">\(\rho\)</span> 的值。</p>
+
+
+<p>解</p>
+
+<p>首先，为使 <span class="math inline">\(\Sigma\)</span> 半正定，需满足
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; 1-\rho^2\le 0 \\
+&amp; 1-2\rho^2 \le 0
+\end{aligned}
+\end{equation*}\]</span>解出
+<span class="math display">\[\begin{equation*}
+|\, \rho\, |\le \frac{\sqrt{2}}{2}
+\end{equation*}\]</span>其次，易见 <span class="math inline">\(Y_1+Y_2+Y_3\)</span> 与 <span class="math inline">\(Y_1-Y_2-Y_3\)</span> 联合分布的协方差阵为
+<span class="math display">\[\begin{equation*}
+\Sigma=\sigma^2
+\begin{pmatrix}
+4\rho +3 &amp; -2\rho -1 \\
+-2\rho -1 &amp; 3 
+\end{pmatrix}
+\end{equation*}\]</span>从而，为使 <span class="math inline">\(Y_1+Y_2+Y_3\)</span> 与 <span class="math inline">\(Y_1-Y_2-Y_3\)</span> 相互独立，<span class="math inline">\(\rho=-1/2\)</span> ，满足题意。</p>
+
+
+<p>6.设随机变量序列 <span class="math inline">\(Y_1\, ,Y_2\, ,\cdots ,Y_n \overset{\mathrm{i.i.d.}}{\sim} \mathrm{N}(\mu\, ,\sigma^2)\)</span> ，证明 <span class="math inline">\(\bar{Y}\)</span> 与 <span class="math inline">\(\sum_{i=1}^{n-1}(Y_i-Y_{i+1})^2\)</span> 相互独立。</p>
+
+
+<p>证明</p>
+
+<p>记随机向量 <span class="math inline">\(\boldsymbol{Y}=(Y_1\, ,Y_2\, ,\cdots ,Y_n)\)</span> ，矩阵
+<span class="math display">\[\begin{equation*}
+A=
+\begin{pmatrix}
+1 &amp; -1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; \cdots &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 &amp; -1
+\end{pmatrix}
+\end{equation*}\]</span>则 <span class="math inline">\(\sum_{i=1}^{n-1}(Y_i-Y_{i+1})^2=\boldsymbol{Y}&#39;A&#39;A\boldsymbol{Y}\)</span> 。由 <span class="math inline">\(\frac 1n1_n1_n&#39;A=0\)</span> 知结论成立。</p>
+
+
+<p>7.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> ，矩阵 <span class="math inline">\(A\)</span> 对称。<br />
+(1) 证明随机变量 <span class="math inline">\(\boldsymbol{Y}A\boldsymbol{Y}\)</span> 的矩母函数为 <span class="math inline">\([\mathrm{det}(\mathrm{I}_n-2tA)]^{-1/2}\)</span> ；<br />
+(2) 若 <span class="math inline">\(A\)</span> 为秩为 <span class="math inline">\(r\)</span> 的幂等阵，证明上述矩母函数可化简为 <span class="math inline">\((1-2t)^{-r/2}\)</span> ；<br />
+(3) 求随机向量 <span class="math inline">\(\boldsymbol{Z}\sim \mathrm{N}(0\, ,\Sigma)\)</span> 的矩母函数。</p>
+
+
+<p>证明</p>
+
+<ol style="list-style-type: lower-alpha">
+<li><p>记矩阵 <span class="math inline">\(A\)</span> 的特征值为 <span class="math inline">\(\lambda_1\, ,\cdots ,\lambda_n\)</span> 。由 <span class="math inline">\(A\)</span> 对称，知存在正交阵 <span class="math inline">\(P\)</span> ，对角阵
+<span class="math display">\[\begin{equation*}
+\Lambda=\mathrm{diag}(\lambda_1\, ,\cdots ,\lambda_n)
+\end{equation*}\]</span>
+使 <span class="math inline">\(A=P&#39;\Lambda P\)</span> 。<br />
+记随机向量 <span class="math inline">\(\boldsymbol{Z}=P\boldsymbol{Y}\sim\mathrm{N}(0\, ,PP&#39;)\overset{d}{=}\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> ，<span class="math inline">\(\boldsymbol{Z}\)</span> 的各分量为 <span class="math inline">\(Z_i\)</span> ，则诸 <span class="math inline">\(Z_i^2\sim\chi_1^2\)</span> 。于是
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{E}\left(\exp\{t\boldsymbol{Y}&#39;A\boldsymbol{Y}\}\right) &amp;= \mathrm{E}\left(\exp\{t\boldsymbol{Z}&#39;\Lambda\boldsymbol{Z}\}\right) \\
+&amp;= \mathrm{E}\left(\exp\{t\lambda_1z_1^2+\cdots+t\lambda_nz_n^2\}\right) \\
+&amp;= \prod_{i=1}^n \mathrm{E}\left(\exp\{t\lambda_iz_i^2\}\right) \\
+&amp;= \prod_{i=1}^n (1-2t\lambda_i)^{-1/2}
+\end{aligned}
+\end{equation*}\]</span>而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+[\mathrm{det}(\mathrm{I}_n-2tA)]^{-1/2} &amp;= [\mathrm{det}\left(P&#39;(\mathrm{I}_n-2t\Lambda)P\right)]^{-1/2} \\
+&amp;= [\mathrm{det}(\mathrm{I}_n-2t\Lambda)]^{-1/2} \\
+&amp;= \prod_{i=1}^n (1-2t\lambda_i)^{-1/2}
+\end{aligned}
+\end{equation*}\]</span>从而结论成立。</p></li>
+<li><p>当 <span class="math inline">\(A\)</span> 为秩为 <span class="math inline">\(r\)</span> 的幂等阵时，<span class="math inline">\(A\)</span> 的特征值中有 <span class="math inline">\(r\)</span> 个为1，其余为0，从而易见结论成立。</p></li>
+<li><p>由于 <span class="math inline">\(\mathrm{N}(0\, ,\Sigma)\)</span> 的特征函数为
+<span class="math display">\[\begin{equation*}
+\varphi(\boldsymbol{t})=\exp\left\{-\frac{1}{2}\boldsymbol{t}&#39;\Sigma\boldsymbol{t}\right\}
+\end{equation*}\]</span>故
+<span class="math display">\[\begin{equation*}
+M_{\boldsymbol{Z}}(\boldsymbol{t})=\varphi\left({\boldsymbol{t}}/{\mathrm{i}}\right)=\exp\left\{\frac{1}{2}\boldsymbol{t}&#39;\Sigma\boldsymbol{t}\right\}
+\end{equation*}\]</span></p></li>
+</ol>
+
+
+<p>8.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim\mathrm{N}(\mu1_n\, ,\Sigma)\)</span> ，其中
+<span class="math display">\[\begin{equation*}
+\Sigma=(1-\rho)\mathrm{I}_n+\rho1_n1_n&#39; \qquad \rho&gt;-\frac{1}{n-1}
+\end{equation*}\]</span>证明
+<span class="math display">\[\begin{equation*}
+\sum_{i=1}^n\frac{(Y_i-\bar{Y})^2}{1-\rho}\sim \chi_{n-1}^2
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>记随机向量 <span class="math inline">\(\boldsymbol{Z}=\left(\sqrt{1-\rho}\right)^{-1}\boldsymbol{Y}\)</span> ，则
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\sum_{i=1}^n\frac{(Y_i-\bar{Y})^2}{1-\rho} &amp;= \boldsymbol{Z}&#39;\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\boldsymbol{Z} \\
+&amp;= \boldsymbol{Z}&#39;\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)&#39;\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\boldsymbol{Z}
+\end{aligned}
+\end{equation*}\]</span>考察正态随机向量 <span class="math inline">\(\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\boldsymbol{Z}\)</span> ，其均值为
+<span class="math display">\[\begin{equation*}
+\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\left(\sqrt{1-\rho}\right)^{-1}\mu 1_n=0
+\end{equation*}\]</span>协方差阵为
+<span class="math display">\[\begin{equation*}
+\frac{1}{1-\rho}\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\left((1-\rho)\mathrm{I}_n+\rho1_n1_n&#39;\right)\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right) = \mathrm{I}_n-\frac 1n1_n1_n&#39;
+\end{equation*}\]</span>从而 <span class="math inline">\(\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\boldsymbol{Z}\overset{d}{=}\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\boldsymbol{U}\)</span> ，其中 <span class="math inline">\(\boldsymbol{U}\sim\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> 。于是
+<span class="math display">\[\begin{equation*}
+\sum_{i=1}^n\frac{(Y_i-\bar{Y})^2}{1-\rho} \overset{d}{=} \boldsymbol{U}&#39;\left(\mathrm{I}_n-\frac 1n1_n1_n&#39;\right)\boldsymbol{U}
+\end{equation*}\]</span>由于 <span class="math inline">\(\mathrm{I}_n-\frac 1n1_n1_n&#39;\)</span> 是秩为 <span class="math inline">\(n-1\)</span> 的对称幂等阵，根据定理2.5，结论成立。</p>
+
+
+<p>9.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> ，矩阵 <span class="math inline">\(A\, ,B\)</span> 对称幂等，且满足 <span class="math inline">\(AB=BA=0\)</span> 。证明随机变量 <span class="math inline">\(\boldsymbol{Y}&#39;A\boldsymbol{Y}\, ,\boldsymbol{Y}&#39;B\boldsymbol{Y}\, ,\boldsymbol{Y}&#39;(\mathrm{I}_n-A-A)\boldsymbol{Y}\)</span> 独立服从于卡方分布。</p>
+
+
+<p>证明</p>
+
+<p>根据定理2.8，只需证明 <span class="math inline">\(\mathrm{rank}(A)+\mathrm{rank}(B)+\mathrm{rank}(\mathrm{I}_n-A-B)=n\)</span> 。我们先证明 <span class="math inline">\(\mathrm{rank}(A)+\mathrm{rank}(B)=\mathrm{rank}(A+B)\)</span> 。由初等变换，知
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\begin{pmatrix}
+A &amp; 0 \\
+0 &amp; B
+\end{pmatrix} &amp; \xrightarrow{\text{第一行加到第二行}}  
+\begin{pmatrix}
+A &amp; 0 \\
+A &amp; B
+\end{pmatrix} \\
+&amp; \xrightarrow{\text{第一列加到第二列}}
+\begin{pmatrix}
+A &amp; A \\
+A &amp; A+B
+\end{pmatrix} \\
+&amp; \xrightarrow{\text{第二行左乘 $-A$ 加到第一行}}
+\begin{pmatrix}
+0 &amp; 0 \\
+A &amp; A+B
+\end{pmatrix} \\
+&amp; \xrightarrow{\text{第二列右乘 $-A$ 加到第一列}}
+\begin{pmatrix}
+0 &amp; 0 \\
+0 &amp; A+B
+\end{pmatrix} 
+\end{aligned}
+\end{equation*}\]</span>从而 <span class="math inline">\(\mathrm{rank}(A)+\mathrm{rank}(B)=\mathrm{rank}(A+B)\)</span> 。<br />
+再证明 <span class="math inline">\(\mathrm{rank}(A+B)+\mathrm{rank}(\mathrm{I}_n-A-B)=n\)</span> 。同样地，有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\begin{pmatrix}
+A+B &amp; 0 \\
+0 &amp; \mathrm{I}_n-A-B
+\end{pmatrix} &amp; \xrightarrow{\text{第一行加到第二行}} 
+\begin{pmatrix}
+A+B &amp; 0 \\
+A+B &amp; \mathrm{I}_n-A-B
+\end{pmatrix} \\
+&amp; \xrightarrow{\text{第一列加到第二列}}
+\begin{pmatrix}
+A+B &amp; A+B \\
+A+B &amp; \mathrm{I}_n
+\end{pmatrix} \\
+&amp; \xrightarrow{\text{第二行左乘 $-(A+B)$ 加到第一行}}
+\begin{pmatrix}
+0 &amp; 0 \\
+A+B &amp; \mathrm{I}_n
+\end{pmatrix} \\
+&amp; \xrightarrow{\text{第二列右乘 $-(A+B)$ 加到第一列}}
+\begin{pmatrix}
+0 &amp; 0 \\
+0 &amp; \mathrm{I}_n
+\end{pmatrix}
+\end{aligned}
+\end{equation*}\]</span>从而 <span class="math inline">\(\mathrm{rank}(A+B)+\mathrm{rank}(\mathrm{I}_n-A-B)=n\)</span> 。</p>
+
+
+<p>10.设随机向量 <span class="math inline">\(\boldsymbol{Y}=(\boldsymbol{Y_1}&#39;\, ,\boldsymbol{Y_2}&#39;)&#39;\sim \mathrm{N}(0\, ,\Sigma)\)</span> ，其中 <span class="math inline">\(\boldsymbol{Y_1}\)</span> 的维数为 <span class="math inline">\(m\)</span> ，<span class="math inline">\(\boldsymbol{Y_2}\)</span> 的维数为 <span class="math inline">\(n\)</span> ，<span class="math inline">\(\Sigma\)</span> 可被分块为
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+\Sigma_{11} &amp; \Sigma_{12} \\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{pmatrix}
+\end{equation*}\]</span>证明 <span class="math inline">\(\boldsymbol{Y}&#39;\Sigma^{-1}\boldsymbol{Y}-\boldsymbol{Y_1}&#39;\Sigma_{11}^{-1}\boldsymbol{Y}\sim \chi_{n}^2\)</span> 。</p>
+
+
+<p>证明</p>
+
+<p>记 <span class="math inline">\(\Sigma=(\Sigma^{\frac 12})&#39;(\Sigma^{\frac 12})\)</span> ，则 <span class="math inline">\(\boldsymbol{Y}\overset{d}{=}(\Sigma^{\frac 12})&#39;\boldsymbol{U}\)</span> ，其中 <span class="math inline">\(\boldsymbol{U}\sim\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> 。于是
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\boldsymbol{Y}&#39;\Sigma^{-1}\boldsymbol{Y}-\boldsymbol{Y_1}&#39;\Sigma_{11}^{-1}\boldsymbol{Y} &amp;= \boldsymbol{Y}&#39;\left(
+\Sigma^{-1}-
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}
+\right)\boldsymbol{Y} \\
+&amp;\overset{d}{=} \boldsymbol{U}&#39;\Sigma^{\frac 12}\left(
+\Sigma^{-1}-
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}
+\right)(\Sigma^{\frac 12})&#39;\boldsymbol{U} \\
+&amp;= \boldsymbol{U}&#39;\left(\mathrm{I}-\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\right)\boldsymbol{U}
+\end{aligned}
+\end{equation*}\]</span>要证明矩阵</p>
+<p><span class="math display">\[\begin{equation*}
+\mathrm{I}-\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\end{equation*}\]</span>对称幂等。易见其对称，接下来，我们先证明幂等性，即
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \left(\mathrm{I}-\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\right)\left(\mathrm{I}-\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\right) \\
+=&amp; \mathrm{I}-2\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;+\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}\Sigma
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39; \\
+=&amp; \mathrm{I}-2\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;+\Sigma^{\frac 12}
+\begin{pmatrix}
+\mathrm{I}&amp; \Sigma_{11}^{-1} \\
+0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39; \\
+=&amp; \mathrm{I}-\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\end{aligned}
+\end{equation*}\]</span>其次，由上题的证明过程可以发现，对于 <span class="math inline">\(n\)</span> 阶幂等阵 <span class="math inline">\(A\)</span> ，有 <span class="math inline">\(\mathrm{rank}(A)+\mathrm{rank}(\mathrm{I}-A)=n\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \mathrm{rank}\left(
+\mathrm{I}-\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\right) \\
+=&amp; m+n-\mathrm{rank}\left(
+\Sigma^{\frac 12}
+\begin{pmatrix}
+\Sigma_{11}^{-1} &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}(\Sigma^{\frac 12})&#39;
+\right) \\
+=&amp; m+n-m=n
+\end{aligned}
+\end{equation*}\]</span>综上，结论成立。</p>
+
+
+<p>11.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim\mathrm{N}(0\, ,\mathrm{I}_n)\)</span> ，求随机变量
+<span class="math display">\[\begin{equation*}
+(Y_1-Y_2)^2+(Y_2-Y_3)^2+\cdots +(Y_{n-1}-Y_n)^2
+\end{equation*}\]</span>的方差。</p>
+
+
+<p>解</p>
+
+<p>记矩阵
+<span class="math display">\[\begin{equation*}
+A=
+\begin{pmatrix}
+1 &amp; -1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; \cdots &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 &amp; -1
+\end{pmatrix}
+\end{equation*}\]</span>则
+<span class="math display">\[\begin{equation*}
+(Y_1-Y_2)^2+(Y_2-Y_3)^2+\cdots +(Y_{n-1}-Y_n)^2=\boldsymbol{Y}&#39;A&#39;A\boldsymbol{Y}
+\end{equation*}\]</span>
+由第一章习题二第7题的结论，知
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(\boldsymbol{Y}&#39;A&#39;A\boldsymbol{Y})=2\mathrm{tr}(A&#39;AA&#39;A)=6n-2
+\end{equation*}\]</span></p>
+
+
+<p>12.设 <span class="math inline">\(n\)</span> 维随机向量 <span class="math inline">\(\boldsymbol{Y}\sim \mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> ，证明
+<span class="math display">\[\begin{equation*}
+\mathrm{Var}(\boldsymbol{Y}&#39;A\boldsymbol{Y})=2\mathrm{tr}(A\Sigma A\Sigma)+4\boldsymbol{\mu}&#39;A\Sigma A\boldsymbol{\mu}
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>太复杂惹</p>
+
+
+<p>13.证明 <span class="math inline">\(\chi_{m}^2(\delta^2)\)</span> 随机变量的矩母函数为
+<span class="math display">\[\begin{equation*}
+M_{\chi_{m}^2(\delta^2)}(t)=(1-2t)^{-\frac m2}\exp\left\{\frac{t}{1-2t}\delta^2\right\} \qquad t&lt;\frac{1}{2}
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>设随机向量 <span class="math inline">\(\boldsymbol{Z}=(Z_1\, ,\cdots ,Z_m)&#39;\sim \mathrm{N}(\boldsymbol{\mu}\, ,\mathrm{I}_m)\)</span> ，其中 <span class="math inline">\(\boldsymbol{\mu}=(\mu_1\, ,\cdots ,\mu_m)\)</span> 且 <span class="math inline">\(\|\boldsymbol{\mu}\|_2^2=\delta^2\)</span> ，则 <span class="math inline">\(\boldsymbol{Z}&#39;\boldsymbol{Z}\sim \chi_{m}^2(\delta^2)\)</span> 。于是
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+M_{\chi_{m}^2(\delta^2)}(t) &amp;= \mathrm{E}\left(\exp\left\{t\boldsymbol{Z}&#39;\boldsymbol{Z}\right\}\right) \\
+&amp;= \prod_{i=1}^m\mathrm{E}\left(\exp\left\{tZ_i^2\right\}\right) \\
+&amp;= \prod_{i=1}^m \int_{\mathbb{R}}\exp\left\{ty^2\right\}\frac{1}{\sqrt{2\pi}}\exp\left\{\frac{1}{2}(y-\mu_i)^2\right\} \, \mathrm{d}y \\
+&amp;= \prod_{i=1}^m (1-2t)^{-\frac 12}\exp\left\{\frac{t}{1-2t}\mu_i^2\right\} \\
+&amp;= (1-2t)^{-\frac m2}\exp\left\{\frac{t}{1-2t}\delta^2\right\} \qquad t&lt;\frac{1}{2}
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>14.设随机向量 <span class="math inline">\(\boldsymbol{X}\sim\mathrm{N}(\mu 1_n\, ,\sigma^2\mathrm{I}_n)\)</span> ，<span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2\)</span> 。证明
+<span class="math display">\[\begin{equation*}
+\frac{(n-1)S^2}{\sigma^2}=\frac{1}{\sigma^2}\boldsymbol{X}&#39;\left(\mathrm{I}_n-\frac{1}{n}1_n1_n&#39;\right)\boldsymbol{X}\sim \chi_{n-1}^2
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>只需证明矩阵 <span class="math inline">\(\mathrm{I}_n-\frac{1}{n}1_n1_n&#39;\)</span> 是秩为 <span class="math inline">\(n-1\)</span> 的对称幂等阵。其对称性与幂等性是显然的，而秩，类似于第二章第10题的做法，有
+<span class="math display">\[\begin{equation*}
+\mathrm{rank}\left(\mathrm{I}_n-\frac{1}{n}1_n1_n&#39;\right)=n-\mathrm{rank}\left(\frac{1}{n}1_n1_n&#39;\right)=n-1
+\end{equation*}\]</span></p>
+
+
+<p>15.设随机向量 <span class="math inline">\(\boldsymbol{Y}=(\boldsymbol{Y_1}&#39;\, ,\boldsymbol{Y_2}&#39;)\sim \mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> ，其中
+<span class="math display">\[\begin{equation*}
+\boldsymbol{\mu}=
+\begin{pmatrix}
+\boldsymbol{\mu_1} \\
+\boldsymbol{\mu_2}
+\end{pmatrix} \qquad
+\Sigma=
+\begin{pmatrix}
+\Sigma_{11} &amp; \Sigma_{12} \\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{pmatrix} &gt;0
+\end{equation*}\]</span>用密度函数证明
+<span class="math display">\[\begin{equation*}
+\boldsymbol{Y_1}|\boldsymbol{Y_2}\sim\mathrm{N}\left(\boldsymbol{\mu_1}+\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol{Y_2}-\boldsymbol{\mu_2})\, ,\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>记 <span class="math inline">\(\boldsymbol{Y_1}\)</span> 的维数为 <span class="math inline">\(m\)</span> ，<span class="math inline">\(\boldsymbol{Y_2}\)</span> 的维数为 <span class="math inline">\(n\)</span> 。则 <span class="math inline">\(\boldsymbol{Y}\)</span> 的密度函数为
+<span class="math display">\[\begin{equation*}
+f(\boldsymbol{y_1}\, ,\boldsymbol{y_2})=(2\pi)^{-\frac{m+n}{2}}|\det(\Sigma)|^{-\frac 12}\exp\left\{-\frac 12(\boldsymbol{y_1}&#39;-\boldsymbol{\mu_1}&#39;\, ,\boldsymbol{y_2}&#39;-\boldsymbol{\mu_2}&#39;)\Sigma^{-1}
+\begin{pmatrix}
+\boldsymbol{y_1}-\boldsymbol{\mu_1} \\
+\boldsymbol{y_2}-\boldsymbol{\mu_2}
+\end{pmatrix}
+\right\}
+\end{equation*}\]</span>若记 <span class="math inline">\(M=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\)</span> ，则
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\det(\Sigma)&amp;=\det(M)\cdot \det(\Sigma_{22}) \\
+\Sigma^{-1}&amp;=
+\begin{pmatrix}
+M^{-1} &amp; -M^{-1}\Sigma_{12}\Sigma_{22}^{-1} \\
+-\Sigma_{22}^{-1}\Sigma_{12}M^{-1} &amp; \Sigma_{22}^{-1}\Sigma_{12}M^{-1}\Sigma_{12}\Sigma_{22}^{-1}+\Sigma_{22}^{-1}
+\end{pmatrix}
+\end{aligned}
+\end{equation*}\]</span>而 <span class="math inline">\(\boldsymbol{Y_2}\)</span> 的边际密度函数为
+<span class="math display">\[\begin{equation*}
+f_{\boldsymbol{Y_2}}(\boldsymbol{y_2})=(2\pi)^{-\frac n2}|\det(\Sigma_{22})|^{-\frac 12}\exp\left\{-\frac 12 (\boldsymbol{y_2}-\boldsymbol{\mu_2})&#39;\Sigma_{22}^{-1}(\boldsymbol{y_2}-\boldsymbol{\mu_2})\right\}
+\end{equation*}\]</span>从而 <span class="math inline">\(\boldsymbol{Y_1}\)</span> 的条件密度函数为
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+f_{\boldsymbol{Y_1}|\boldsymbol{Y_2}}(\boldsymbol{y_1}|\boldsymbol{y_2})&amp;=\frac{f(\boldsymbol{y_1}\, ,\boldsymbol{y_2})}{f_{\boldsymbol{Y_2}}(\boldsymbol{y_2})} \\
+&amp;=(2\pi)^{-\frac m2}|\det(M)|^{-\frac 12}\exp\left\{-\frac 12 \left(\boldsymbol{y_1}-\boldsymbol{\mu_1}-\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol{y_2}-\boldsymbol{\mu_2})\right)&#39;\right. \\
+&amp; \hspace{12em}\left. M^{-1}\left(\boldsymbol{y_1}-\boldsymbol{\mu_1}-\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol{y_2}-\boldsymbol{\mu_2})\right)\right\}
+\end{aligned}
+\end{equation*}\]</span>即 <span class="math inline">\(\boldsymbol{Y_1}|\boldsymbol{Y_2}\sim\mathrm{N}\left(\boldsymbol{\mu_1}+\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol{Y_2}-\boldsymbol{\mu_2})\, ,\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span> 。</p>
+
+
+<p>16.设随机向量 <span class="math inline">\(\boldsymbol{Y}\sim \mathrm{N}(\boldsymbol{\mu}\, ,\Sigma)\)</span> ，<span class="math inline">\(\Sigma \ge 0\)</span> ，证明
+<span class="math display">\[\begin{equation*}
+(\boldsymbol{Y}-\boldsymbol{\mu})&#39;\Sigma^{-}(\boldsymbol{Y}-\boldsymbol{\mu})\sim \chi_r^2
+\end{equation*}\]</span>其中 <span class="math inline">\(r=\mathrm{rank}(\Sigma)\)</span> 。</p>
+
+
+<p>证明</p>
+
+<p>由题设，知存在 <span class="math inline">\(r\)</span> 阶满秩对角阵 <span class="math inline">\(\Lambda_r\)</span> ，正交阵 <span class="math inline">\(P\)</span> ，使得
+<span class="math display">\[\begin{equation*}
+\Sigma=P&#39;
+\begin{pmatrix}
+\Lambda_r &amp; 0 \\
+0 &amp; 0
+\end{pmatrix}P
+\end{equation*}\]</span>于是 <span class="math inline">\(\Sigma^-\)</span> 具有下面的形式
+<span class="math display">\[\begin{equation*}
+\Sigma^-=P&#39;
+\begin{pmatrix}
+\Lambda_r^{-1} &amp; B \\
+C &amp; D
+\end{pmatrix}P
+\end{equation*}\]</span>其中 <span class="math inline">\(B\, ,C\, ,D\)</span> 是任意阶数合适的矩阵。从而
+<span class="math display">\[\begin{equation*}
+(\boldsymbol{Y}-\boldsymbol{\mu})&#39;\Sigma^{-}(\boldsymbol{Y}-\boldsymbol{\mu})=(\boldsymbol{Y}-\boldsymbol{\mu})&#39;P&#39;
+\begin{pmatrix}
+\Lambda_r^{-1} &amp; B \\
+C &amp; D
+\end{pmatrix}P(\boldsymbol{Y}-\boldsymbol{\mu})
+\end{equation*}\]</span>记随机向量 <span class="math inline">\(\boldsymbol{Z}=P(\boldsymbol{Y}-\boldsymbol{\mu})\)</span> ，则 <span class="math inline">\(\boldsymbol{Z}\sim \mathrm{N}\left(0\, ,\mathrm{diag}(\Lambda_r\, ,0)\right)\)</span> 。将 <span class="math inline">\(\boldsymbol{Z}\)</span> 分为 <span class="math inline">\((\boldsymbol{Z_1}&#39;\, ,\boldsymbol{Z_2}&#39;)&#39;\)</span> ，其中 <span class="math inline">\(\boldsymbol{Z_1}\)</span> 的维数为 <span class="math inline">\(r\)</span> ，则 <span class="math inline">\(\boldsymbol{Z_1}\sim\mathrm{N}(0\, ,\Lambda_r)\)</span> ，<span class="math inline">\(\boldsymbol{Z_2}\overset{d}{=}0\)</span> ，并且
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\boldsymbol{Z}&#39;
+\begin{pmatrix}
+\Lambda_r^{-1} &amp; B \\
+C &amp; D
+\end{pmatrix}\boldsymbol{Z}&amp;\overset{d}{=}\boldsymbol{Z_1}&#39;\Lambda_r^{-1}\boldsymbol{Z_1}\\
+&amp;= \left(\Lambda^{-\frac 12}\boldsymbol{Z_1}\right)&#39;\left(\Lambda^{-\frac 12}\boldsymbol{Z_1}\right)\sim\chi_r^2
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+</div>
+<div id="section-5" class="section level1">
+<h1>第三章习题</h1>
+
+<p>1.设 <span class="math inline">\((\boldsymbol{x}&#39;\, ,Y)&#39;\)</span> 是 <span class="math inline">\(p+1\)</span> 维随机向量，其密度函数为 <span class="math inline">\(d(\boldsymbol{x}&#39;\, ,y)\)</span> 。<br />
+(a) 证明：存在可测函数 <span class="math inline">\(f\)</span> 使得 <span class="math inline">\(\mathrm{E}(Y|\, \boldsymbol{x})=f(\boldsymbol{x})\)</span> 当且仅当 <span class="math inline">\(Y|\,\boldsymbol{x}\)</span> 的联合密度函数具有形式 <span class="math inline">\(h(y-f(\boldsymbol{x})\, ;\boldsymbol{x})\)</span> 且对固定的纯量 <span class="math inline">\(\boldsymbol{x}\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\int_{\mathbb{R}}z h(z\, ;\boldsymbol{x})\, \mathrm{d}z=0
+\end{equation*}\]</span>
+(b) 举例说明上述命题的正确性（不能是正态分布的例子）；<br />
+(c) 给出一个 <span class="math inline">\(f\)</span> 是线性函数的例子；<br />
+(d) 给出一个 <span class="math inline">\(Y|\,\boldsymbol{x}\)</span> 的方差为常数的例子。</p>
+
+
+<p>证明</p>
+
+<ol style="list-style-type: lower-alpha">
+<li><p>先证明充分性。此时，有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{E}(Y|\,\boldsymbol{x}) &amp;= \int_{\mathbb{R}}yh(y-f(\boldsymbol{x})\, ;\boldsymbol{x})\, \mathrm{d}y \\
+&amp;= \int_{\mathbb{R}}(y-f(\boldsymbol{x}))h(y-f(\boldsymbol{x})\, ;\boldsymbol{x})\, \mathrm{d}y+f(\boldsymbol{x}) \\
+&amp;= f(\boldsymbol{x})
+\end{aligned}
+\end{equation*}\]</span>从而充分性得证。<br />
+再证必要性。记随机变量 <span class="math inline">\(Z=Y-f(\boldsymbol{x})|\, \boldsymbol{x}\)</span> 的密度函数为 <span class="math inline">\(h(z\, ;\boldsymbol{x})\)</span> 。由 <span class="math inline">\(\mathrm{E}(Y|\, \boldsymbol{x})=f(\boldsymbol{x})\)</span> 知
+<span class="math display">\[\begin{equation*}
+\int_{\mathbb{R}}zh(z\, ;\boldsymbol{x})\, \mathrm{d}z=\mathrm{E}(Y-f(\boldsymbol{x})|\, \boldsymbol{x})=0
+\end{equation*}\]</span>并且
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+P\{Y|\,\boldsymbol{x}\le y\} &amp;= P\{Y-f(\boldsymbol{x})|\,\boldsymbol{x}\le y-f(\boldsymbol{x})\} \\
+&amp;= \int_{-\infty}^{y-f(\boldsymbol{x})} h(z\, ;\boldsymbol{x})\, \mathrm{d}z \\
+&amp;= \int_{-\infty}^y h(z-f(\boldsymbol{x})\, ;\boldsymbol{x})\, \mathrm{d}z
+\end{aligned}
+\end{equation*}\]</span>从而 <span class="math inline">\(Y|\,\boldsymbol{x}\)</span> 的密度函数为 <span class="math inline">\(h(y-f(\boldsymbol{x})\, ;\boldsymbol{x})\)</span> 。原命题得证。</p></li>
+<li><p>设二维随机向量 <span class="math inline">\((x\, ,Y)\sim \mathrm{U}(D)\)</span> ，其中 <span class="math inline">\(D=[0\, ,1]\times[0\,, 1]\)</span> 。易见 <span class="math inline">\(x\, ,Y\)</span> 相互独立，从而 <span class="math inline">\(Y|\, x\)</span> 的密度函数为
+<span class="math display">\[\begin{equation*}
+d_{Y|\, x}(y|\, x)=d_Y(y)=1 \qquad 0&lt;y&lt;1
+\end{equation*}\]</span>并且
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(Y|\, x)=\frac 12
+\end{equation*}\]</span>我们知道 <span class="math inline">\((x\, ,Y-\frac 12)\sim\mathrm{U}(D&#39;)\)</span> ，其中 <span class="math inline">\(D&#39;=[0\, ,1]\times[\frac 12\, ,\frac 12]\)</span> 。从而 <span class="math inline">\(Y-\frac 12|\, x\)</span> 的密度函数为
+<span class="math display">\[\begin{equation*}
+h(y\, ;x)=1 \qquad -\frac 12&lt;y&lt;\frac 12
+\end{equation*}\]</span>因此
+<span class="math display">\[\begin{equation*}
+h(y-\frac 12\, ;x)=1 \qquad 0&lt;y&lt;1
+\end{equation*}\]</span>与 <span class="math inline">\(d_{Y|\, x}(y|\, x)\)</span> 相吻合。</p></li>
+<li><p>见上例。</p></li>
+<li><p>见上例，其中 <span class="math inline">\(\mathrm{Var}(Y|\, x)=1/12\)</span> 。</p></li>
+</ol>
+
+
+<p>2.举例说明，新变量的引入未必会使得MSE减少。</p>
+
+
+<p>解</p>
+
+<p>令
+<span class="math display">\[\begin{equation*}
+Y=
+\begin{pmatrix}
+4 \\
+3 \\
+10
+\end{pmatrix} \quad x_1=
+\begin{pmatrix}
+1 \\
+2 \\
+6
+\end{pmatrix} \quad x_2=
+\begin{pmatrix}
+3 \\
+1 \\
+4
+\end{pmatrix}
+\end{equation*}\]</span>建立模型 <span class="math inline">\(y=x_1-x_2+\varepsilon\)</span> ，其中 <span class="math inline">\(\varepsilon\sim (0\, ,\sigma^2)\)</span> 。则仅考虑 <span class="math inline">\(x_1\)</span> 时，有
+<span class="math display">\[\begin{equation*}
+\text{MSE}_1=3^2+1^2+4^2=26
+\end{equation*}\]</span>考虑 <span class="math inline">\(x_1\)</span> 与 <span class="math inline">\(x_2\)</span> 时，有
+<span class="math display">\[\begin{equation*}
+\text{MSE}_2=6^2+2^2+8^2=104 &gt; MSE_1
+\end{equation*}\]</span></p>
+
+
+<p>3.设随机变量 <span class="math inline">\(Y\)</span> 的分布函数为 <span class="math inline">\(F(x)\)</span> ，常数 <span class="math inline">\(\tau\in (0\, ,1)\)</span> 。记
+<span class="math display">\[\begin{equation*}
+L(a)=\mathrm{E}(|Y-a|(\tau1_{\{Y&gt;a\}}+(1-\tau)1_{\{Y&lt;a\}}))
+\end{equation*}\]</span>其中 <span class="math inline">\(a\)</span> 为纯量数字。上式表征 <span class="math inline">\(Y\)</span> 与 <span class="math inline">\(a\)</span> 在非对称惩罚下的平均距离。证明：当 <span class="math inline">\(F\)</span> 严格单调增时，若记 <span class="math inline">\(q_{\tau}=F^{-1}(\tau)\)</span> ，则
+<span class="math display">\[\begin{equation*}
+L(q_{\tau})=\min_{a\in\mathbb{R}}L(a)
+\end{equation*}\]</span></p>
+
+
+<p>证明</p>
+
+<p>当 <span class="math inline">\(F\)</span> 严格单调增时，<span class="math inline">\(Y\)</span> 必不为离散型随机变量。考虑 <span class="math inline">\(Y\)</span> 为连续型随机变量的情形，记其密度函数为 <span class="math inline">\(f(y)\)</span> ，则
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+L(a) &amp;= \mathrm{E}(|Y-a|(\tau1_{\{Y&gt;a\}}+(1-\tau)1_{\{Y&lt;a\}})) \\
+&amp;= \int_a^{\infty}(y-a)\tau f(y)\, \mathrm{d}y+\int_{-\infty}^a(a-y)(1-\tau)f(y)\, \mathrm{d}y \\
+&amp;= \tau\mathrm{E}(Y)-\tau a+a\int_{-\infty}^af(y)\, \mathrm{d}y-\int_{-\infty}^ayf(y)\, \mathrm{d}y
+\end{aligned}
+\end{equation*}\]</span>从而
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}a}L(a) &amp;= -\tau+\int_{-\infty}^af(y)\, \mathrm{d}y+af(a)-af(a) \\
+&amp;= -\tau+F(a)
+\end{aligned}
+\end{equation*}\]</span>故 <span class="math inline">\(L(a)\)</span> 的稳定点为 <span class="math inline">\(a=q_{\tau}\)</span> 。其二阶导
+<span class="math display">\[\begin{equation*}
+\frac{\mathrm{d}^2}{\mathrm{d}a^2}L(a)=f(a)&gt;0
+\end{equation*}\]</span>因此，<span class="math inline">\(q_{\tau}\)</span> 为极小值点。综合
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\lim_{a\to \infty}L(a)=\lim_{a\to -\infty}L(a)=\infty
+\end{aligned}
+\end{equation*}\]</span>知 <span class="math inline">\(q_{\tau}\)</span> 为最小值点。由此结论成立。</p>
+
+
+<p>4.设随机变量 <span class="math inline">\(Y\)</span> 仅取值0和1，解释变量 <span class="math inline">\(\boldsymbol{x}\)</span> 的维数为 <span class="math inline">\(p\)</span> 。写出尽可能多的数学式子来构建 <span class="math inline">\(\boldsymbol{x}\)</span> 与 <span class="math inline">\(P\{Y=1\}\)</span> 间的模型。</p>
+
+
+<p>解</p>
+
+<p>举两个例子。
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; P\{Y=1\}=1_{\{\|\boldsymbol{x}\|_2&gt;1\}} \\
+&amp; P\{Y=1\}=\frac{2}{\pi}\arctan(\boldsymbol{x}&#39;1_p)
+\end{aligned}
+\end{equation*}\]</span></p>
+
+
+<p>5.假使我们根据先验信息构建了如下非参数模型
+<span class="math display">\[\begin{equation*}
+y=f(x)+\varepsilon
+\end{equation*}\]</span>来拟合二维随机变量 <span class="math inline">\((X\, ,Y)\)</span> ，其中 <span class="math inline">\(f\)</span> 的表达式未知但已知为连续函数。对收集到的数据 <span class="math inline">\((x_i\, ,y_i)\ i=1\, ,\cdots ,n\)</span> ，请给出估计 <span class="math inline">\(f\)</span> 的方法并说明合理性。</p>
+
+
+<p>解</p>
+
+<p>可以将数据绘成散点图，根据趋势，选择相近的模型，例如
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; f(x)=\beta_0+\beta_1x+\cdots+\beta_px^p \\
+&amp; f(x)=\beta_0\exp\{\beta_1x\} \\
+&amp; f(x)=\beta_0\sin(\beta_1x+\beta_2) \\
+&amp; f(x)=\beta_0\left(\exp\{\beta_1x\}+\exp\{\beta_2x\}\right) \\
+&amp; \cdots
+\end{aligned}
+\end{equation*}\]</span>其中的参数根据最小二乘法确定。然后，对比各模型的MSE，选择MSE最小的一个。这样选择的原因在于，对任一可测函数 <span class="math inline">\(g\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(y-g(x))^2\ge \mathrm{E}(y-\mathrm{E}(y|\, x))^2
+\end{equation*}\]</span>从而越小的MSE对应的函数越可能为 <span class="math inline">\(\mathrm{E}(y|\, x)=f(x)\)</span> 。</p>
+
+
+<p>6.假设我们正在研究个体的体重与其他因素（诸如都身高、年龄、性别等）的关系。你认为哪些因素应该参与模型的构建来预测体重，尝试着收集一些数据来测试你的模型。</p>
+
+
+<p>解</p>
+
+<p>身高、年龄、性别和睡眠时间都应放入模型中。</p>
+
+
+<p>7.考察线性回归模型
+<span class="math display">\[\begin{equation*}
+Y=\boldsymbol{x}&#39;\boldsymbol{\beta}+\varepsilon
+\end{equation*}\]</span>其中随机向量 <span class="math inline">\(\boldsymbol{x}&#39;=(x_1\, ,x_2\, ,\cdots ,x_n)\)</span> 与误差 <span class="math inline">\(\varepsilon\)</span> 不相关。举例说明 <span class="math inline">\(\beta_i\ne 0\)</span> 与 <span class="math inline">\(\mathrm{Var}(x_i)\ne 0\)</span> 不能推出 <span class="math inline">\(\mathrm{Cov}(Y\, ,x_i)\ne 0\)</span> ，反之亦然。这说明了什么？</p>
+
+
+<p>解</p>
+
+<p>令
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; x_i\overset{\mathrm{i.i.d.}}{\sim} \mathrm{N}(0\, ,1) \qquad i=1\, ,2\, ,\cdots ,n-1 \\
+&amp; x_n=-(x_1+x_2+\cdots+x_{n-1}) \\
+&amp; \boldsymbol{\beta}=1_n
+\end{aligned}
+\end{equation*}\]</span>则有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \mathrm{Var}(x_i)=1 \qquad i=1\, ,2\, ,\cdots ,n-1 \\
+&amp; \mathrm{Var}(x_n)=n-1
+\end{aligned}
+\end{equation*}\]</span>但易见
+<span class="math display">\[\begin{equation*}
+\mathrm{Cov}(Y\, ,x_i)=\sum_{j=1}^n\mathrm{Cov}(x_j\, ,x_i)=0
+\end{equation*}\]</span>从而 <span class="math inline">\(\beta_i\ne 0\)</span> 与 <span class="math inline">\(\mathrm{Var}(x_i)\ne 0\)</span> 不能推出 <span class="math inline">\(\mathrm{Cov}(Y\, ,x_i)\ne 0\)</span> 。反过来，只要令
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; x_j=\beta_j=0 \qquad j\ne i \\
+&amp; x_i\sim\mathrm{N}(0\, ,1) \\
+&amp; \beta_i=1
+\end{aligned}
+\end{equation*}\]</span>就可以得到 <span class="math inline">\(\mathrm{Cov}(Y\, ,x_i)\ne 0\)</span> 不能推出 <span class="math inline">\(\beta_i\ne 0\)</span> 与 <span class="math inline">\(\mathrm{Var}(x_i)\ne 0\)</span> 。这说明 <span class="math inline">\(Y\)</span> 与 <span class="math inline">\(x_i\)</span> 的相关性与其余变量 <span class="math inline">\(x_j\)</span> 有关。</p>
+
+
+<p>8.设 <span class="math inline">\((\boldsymbol{x}&#39;\, ,Y)&#39;\)</span> 是 <span class="math inline">\(p\)</span> 维随机向量，<span class="math inline">\(\mathfrak{F}\)</span> 是若干定义在 <span class="math inline">\(p-1\)</span> 维空间的函数的集合，且常值函数含于 <span class="math inline">\(\mathfrak{F}\)</span> 。记
+<span class="math display">\[\begin{equation*}
+f^*=\arg\min_{f\in\mathfrak{F}}\mathrm{E}(Y-f(\boldsymbol{x}))^2
+\end{equation*}\]</span>证明
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(Y-f^*(\boldsymbol{x}))^2\le \mathrm{Var}(Y)
+\end{equation*}\]</span>从回归的角度，上述不等式可以带给我们什么启发？</p>
+
+
+<p>证明</p>
+
+<p>对常数 <span class="math inline">\(c\)</span> ，有
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\mathrm{E}(Y-c)^2 &amp;= \mathrm{E}(Y-\mathrm{E}(Y)+\mathrm{E}(Y)-c)^2 \\
+&amp;= \mathrm{Var}(Y)+(\mathrm{E}(Y)-c)^2 \ge \mathrm{Var}(Y)
+\end{aligned}
+\end{equation*}\]</span>等号成立当且仅当 <span class="math inline">\(c=\mathrm{E}(Y)\)</span> 。从而
+<span class="math display">\[\begin{equation*}
+\mathrm{E}(Y-f^*(\boldsymbol{x}))^2\le \mathrm{E}(Y-\mathrm{E}(Y))^2=\mathrm{Var}(Y)
+\end{equation*}\]</span>上述过程告诉我们，在均方误差的标准下，若用常数来拟合 <span class="math inline">\(Y\)</span>，<span class="math inline">\(E(Y)\)</span> 是最好的选择。从而，当回归的备选函数类含有常值函数时，一定能找到一个函数，其均方误差比 <span class="math inline">\(Y\)</span> 本身的方差小，即缩减了不确定性。</p>
+
+
+<p>9.写出多项式回归与样条回归的设计矩阵。</p>
+
+
+<p>解</p>
+
+<ul>
+<li><p>多项式回归（以阶数等于3为例）
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+1 &amp; x_{11} &amp; x_{21} &amp; x_{31} &amp; x_{11}^2 &amp; x_{11}x_{21} &amp; \cdots &amp; x_{31}^2 &amp; \cdots &amp; x_{31}^3 \\
+1 &amp; x_{12} &amp; x_{22} &amp; x_{32} &amp; x_{12}^2 &amp; x_{12}x_{22} &amp; \cdots &amp; x_{32}^2 &amp; \cdots &amp; x_{32}^3 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp;  &amp; \vdots &amp;  &amp; \vdots \\
+1 &amp; x_{1p} &amp; x_{2p} &amp; x_{3p} &amp; x_{1p}^2 &amp; x_{1p}x_{2p} &amp; \cdots &amp; x_{3p}^2 &amp; \cdots &amp; x_{3p}^3
+\end{pmatrix}
+\end{equation*}\]</span></p></li>
+<li><p>样条回归
+<span class="math display">\[\begin{equation*}
+\begin{pmatrix}
+1 &amp; x_1 &amp; \cdots &amp; x_1^{m-1} &amp; (x_1-\xi_1)_+^{m-1} &amp; \cdots &amp; (x_1-\xi_k)_+^{m-1} \\
+1 &amp; x_2 &amp; \cdots &amp; x_2^{m-1} &amp; (x_2-\xi_1)_+^{m-1} &amp; \cdots &amp; (x_2-\xi_k)_+^{m-1} \\
+\vdots &amp; \vdots &amp;  &amp; \vdots &amp; \vdots &amp;  &amp; \vdots \\
+1 &amp; x_p &amp; \cdots &amp; x_p^{m-1} &amp; (x_p-\xi_1)_+^{m-1} &amp; \cdots &amp; (x_p-\xi_k)_+^{m-1} \\
+\end{pmatrix}
+\end{equation*}\]</span></p></li>
+</ul>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
